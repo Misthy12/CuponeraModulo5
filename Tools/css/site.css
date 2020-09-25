@@ -1,0 +1,135 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+
+.modal-content{
+    border-radius: 0;
+}
+
+.form-control{
+    border-radius: 0;
+}
+
+.card{
+    border-radius:0;
+}
+
+.sidebar-collapse .main-sidebar-custom .hide-on-collapse {
+    display: none;
+}
+
+.sidebar-collapse .main-sidebar-custom :hover .hide-on-collapse {
+    display: block;
+}
+
+.main-sidebar-custom .sidebar {
+    height: calc(100% - 7.6rem);
+}
+
+.main-sidebar-custom .sidebar-custom {
+    height: 4rem;
+}
+
+.main-sidebar-custom-lg .sidebar {
+    height: calc(100% - 9.6rem);
+}
+
+.main-sidebar-custom-lg .sidebar-custom {
+    height: 6rem;
+}
+
+.main-sidebar-custom-xl .sidebar {
+    height: calc(100% - 11.6rem);
+}
+
+.main-sidebar-custom-xl .sidebar-custom {
+    height: 8rem;
+}
+
+.sidebar-custom {
+    padding: 0.85rem .5rem;
+}
+
+.main-sidebar-custom .pos-right,
+.main-sidebar-custom-lg .pos-right,
+.main-sidebar-custom-xl .pos-right {
+    position: absolute;
+    right: .5rem;
+}
+
+[class*='sidebar-dark'] .sidebar-custom {
+    border-top: 1px solid #4f5962;
+}
+
+[class*='sidebar-light'] .sidebar-custom {
+    border-top: 1px solid #dee2e6;
+}
