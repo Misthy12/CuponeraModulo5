@@ -26,7 +26,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Sobre Nosotros</a>
+        <a href="./Vistas/Rubros/listado_rubros.php" class="nav-link">Rubros</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contactanos</a>

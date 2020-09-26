@@ -26,11 +26,11 @@
      
    ?>
 
-   <title>Autores</title>
+   <title>Cliente</title>
 
        <div class="card">
            <div class="card-header bg-warning">
-               <h4 class="text-center">Editar Autor</h4>
+               <h4 class="text-center">Editar</h4>
            </div>
            <div class="card-body">
                 <form action="" method="POST">
