@@ -14,4 +14,23 @@ function OpenCon(){
 function CloseCon($conn){
     $conn -> close();
 }
+
+//CONECCION PARA PDO
+function OpenConPDO(){
+    /*Conexion a una Base de Datos MySql*/
+    $dsn = 'mysql:dbname=;host=127.0.0.1';
+    $usuario = 'root';
+    $contrasena = '';
+    try{
+       $mbd = new PDO($dsn,$usuario,$contrasena,array(PDO::ATTR_PERSISTENT => true));
+    } 
+    catch (PDOException $e){
+       die('Fallo la conexión: ' .$e->getMessage());
+       $mbd = null;
+    }
+    return $mbd;
+ }
+ function CloseConPDO($mbd){
+    $mbd = null;
+ }
 ?>
