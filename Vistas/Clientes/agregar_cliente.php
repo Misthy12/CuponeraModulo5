@@ -1,7 +1,7 @@
 <?php
 include "../../Share/header.php";
 ?>
-    <title>Autores</title>
+    <title>Clientes</title>
 
         <div class="card">
             <div class="card-header bg-success">

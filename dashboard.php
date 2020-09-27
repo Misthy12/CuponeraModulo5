@@ -91,13 +91,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/forms/general.html" class="nav-link">
+                <a href="./Vistas/Clientes/listado_empresas.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Listado Empresas</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/forms/advanced.html" class="nav-link">
+                <a href="./Vistas/Clientes/listado_empresas.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Listado Sucursales</p>
                 </a>
@@ -202,7 +202,7 @@
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="./Vistas/Clientes/listado_empresas.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
