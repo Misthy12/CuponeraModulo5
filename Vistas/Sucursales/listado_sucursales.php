@@ -24,10 +24,10 @@ include("../../Share/header.php");
             $sql="SELECT s.idSucursal as id, s.nombreSucursal, s.nombreEncargadoSuc, e.nombreEmpresa as empresa, s.correo FROM tblSucursales s
             INNER JOIN tblEmpresas e ON s.idEmpresa = e.idEmpresa";
 
-            ?>
-
-            <table class="table table-responsive table-responsive-lg table-hover table-striped ">
-                <thead  class="table-primary text-center">
+            ?> 
+            <div class="card-body table-responsive">
+                <table class="table  table-hover table-striped ">
+                    <thead class="bg-dark text-center">
                     <tr>
                         <th>Codigo</th>
                         <th>Nombre</th>
@@ -75,11 +75,7 @@ include("../../Share/header.php");
                         }
                     }
                 ?>
-            <div class="card-footer text-center ">
-                    <details>
-                    <summary>Por: ---</summary>
-                    <p><a href="mailto:nancycolatoam@gmail.com">nancycolatoam@gmail.com</a></p>
-                    </details>
+
             </div>
         </div>
         

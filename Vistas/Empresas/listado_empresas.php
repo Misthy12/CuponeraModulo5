@@ -25,37 +25,38 @@ include("../../Share/header.php");
             INNER JOIN tblRubros r ON e.idRubro = r.idRubro";
             ?>
 
-            <table class="table table-responsive-lg table-hover table-striped ">
-                <thead class="table-primary text-center">
-                    <tr>
-                        <th>Codigo</th>
-                        <th>Nombre</th>
-                        <th>Telefono</th>
-                        <th>Direccion</th>
-                        <th>Rubro</th>
-                        <th>Opciones</th>
-                    </tr>
-                </thead>
+            <div class="card-body table-responsive">
+                <table class="table  table-hover table-striped ">
+                    <thead class="bg-dark text-center">
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Nombre</th>
+                            <th>Telefono</th>
+                            <th>Direccion</th>
+                            <th>Rubro</th>
+                            <th>Opciones</th>
+                        </tr>
+                    </thead>
 
-                <tbody>
-                    <?php
-                       foreach( $conn->query($sql) as $row){
-                            echo "<tr>";
-                                echo "<td>".$row["codigoEmpresa"]."</td>";
-                                echo "<td>".$row["nombreEmpresa"] ."</td>";
-                                echo "<td>".$row["telefono"]."</td>";
-                                echo "<td>".$row["direccion"]."</td>"; 
-                                echo "<td>".$row["rubro"]."</td>"; 
-                                echo "<td>";
-                                    echo "<a class='btn btn-sm btn-warning' href=\"./editar_empresa.php?codigo=". $row["id"]."\" ><i class='fas fa-edit'></i></a> \n";
-                                    echo "<a class='btn btn-sm btn-info' href=\"./info_empresa.php?codigo=". $row["id"]."\" ><i class='fas fa-info'></i></a> \n";
-                                    echo "<a class=\"btn btn-sm btn-danger\" href=\"./eliminar_empresa.php?codigo=". $row["id"]."\"><i class=\"far fa-trash-alt\"></i></a>";
-                                echo "</td>";
-                            echo "</tr>";
-                        }
-                    ?>
-                </tbody>
-            </table>
+                    <tbody>
+                        <?php
+                        foreach( $conn->query($sql) as $row){
+                                echo "<tr>";
+                                    echo "<td>".$row["codigoEmpresa"]."</td>";
+                                    echo "<td>".$row["nombreEmpresa"] ."</td>";
+                                    echo "<td>".$row["telefono"]."</td>";
+                                    echo "<td>".$row["direccion"]."</td>"; 
+                                    echo "<td>".$row["rubro"]."</td>"; 
+                                    echo "<td>";
+                                        echo "<a class='btn btn-sm btn-warning' href=\"./editar_empresa.php?codigo=". $row["id"]."\" ><i class='fas fa-edit'></i></a> \n";
+                                        echo "<a class='btn btn-sm btn-info' href=\"./info_empresa.php?codigo=". $row["id"]."\" ><i class='fas fa-info'></i></a> \n";
+                                        echo "<a class=\"btn btn-sm btn-danger\" href=\"./eliminar_empresa.php?codigo=". $row["id"]."\"><i class=\"far fa-trash-alt\"></i></a>";
+                                    echo "</td>";
+                                echo "</tr>";
+                            }
+                        ?>
+                    </tbody>
+                </table>
             
                 
                 <?php
@@ -75,11 +76,6 @@ include("../../Share/header.php");
                         }
                     }
                 ?>
-            <div class="card-footer text-center ">
-                    <details>
-                    <summary>Por: ---</summary>
-                    <p><a href="mailto:nancycolatoam@gmail.com">nancycolatoam@gmail.com</a></p>
-                    </details>
             </div>
         </div>
         

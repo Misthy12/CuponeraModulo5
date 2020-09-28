@@ -1,9 +1,11 @@
 <?php
-include("../../Share/header.php");
+include "../../Share/header.php";
 ?>
     <title>Ofertas</title>
     
-
+    <!-- Main content -->
+    <section class="content">
+    <div class="container-fluid">
         <div class="card">
             <div class="card-header">
                 <div class="row">
@@ -26,42 +28,42 @@ include("../../Share/header.php");
             INNER JOIN tblEstadosCupon e ON o.estado=e.idEstadoCupon";
 
             ?>
+            <div class="card-body table-responsive">
+                <table class="table  table-hover table-striped ">
+                    <thead class="bg-dark text-center">
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Oferta</th>
+                            <th>Sucursal</th>
+                            <th>Descripcion</th>
+                            <th>Precio Ofertado</th>
+                            <th>Estado</th>
+                            <th>Fechas</th>
+                            <th>Opciones</th>
+                        </tr>
+                    </thead>
 
-            <table class="table table-responsive">
-                <thead>
-                    <tr>
-                        <th>Codigo</th>
-                        <th>Oferta</th>
-                        <th>Sucursal</th>
-                        <th>Descripcion</th>
-                        <th>Precio Ofertado</th>
-                        <th>Estado</th>
-                        <th>Fechas</th>
-                        <th>Opciones</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <?php
-                       foreach( $conn->query($sql) as $row){
-                            echo "<tr>";
-                                echo "<td>".$row["id"]."</td>";
-                                echo "<td>".$row["titulo"]."</td>";
-                                echo "<td>".$row["sucursal"]."</td>"; 
-                                echo "<td>".$row["descripcion"]."</td>"; 
-                                echo "<td> $".$row["precioOferta"]."</td>"; 
-                                echo "<td>".$row["estado"]."</td>"; 
-                                echo "<td>".$row["fechaInicio"]." al ".$row["fechaFin"]."</td>"; 
-                                echo "<td>";
-                                    echo "<a class='btn btn-sm btn-warning' href=\"./editar_oferta.php?codigo=". $row["id"]."\" ><i class='fas fa-edit'></i></a> \n";
-                                    echo "<a class='btn btn-sm btn-info' href=\"./info_oferta.php?codigo=". $row["id"]."\" ><i class='fas fa-info'></i></a> \n";
-                                    echo "<a class=\"btn btn-sm btn-danger\" href=\"./eliminar_ofeta.php?codigo=". $row["id"]."\"><i class=\"far fa-trash-alt\"></i></a>";
-                                echo "</td>";
-                            echo "</tr>";
-                        }
-                    ?>
-                </tbody>
-            </table>
+                    <tbody>
+                        <?php
+                        foreach( $conn->query($sql) as $row){
+                                echo "<tr>";
+                                    echo "<td>".$row["id"]."</td>";
+                                    echo "<td>".$row["titulo"]."</td>";
+                                    echo "<td>".$row["sucursal"]."</td>"; 
+                                    echo "<td>".$row["descripcion"]."</td>"; 
+                                    echo "<td> $".$row["precioOferta"]."</td>"; 
+                                    echo "<td>".$row["estado"]."</td>"; 
+                                    echo "<td>".$row["fechaInicio"]." al ".$row["fechaFin"]."</td>"; 
+                                    echo "<td>";
+                                        echo "<a class='btn btn-sm btn-warning' href=\"./editar_oferta.php?codigo=". $row["id"]."\" ><i class='fas fa-edit'></i></a> \n";
+                                        echo "<a class='btn btn-sm btn-info' href=\"./info_oferta.php?codigo=". $row["id"]."\" ><i class='fas fa-info'></i></a> \n";
+                                        echo "<a class=\"btn btn-sm btn-danger\" href=\"./eliminar_ofeta.php?codigo=". $row["id"]."\"><i class=\"far fa-trash-alt\"></i></a>";
+                                    echo "</td>";
+                                echo "</tr>";
+                            }
+                        ?>
+                    </tbody>
+                </table>
             
                 
                 <?php
@@ -81,11 +83,6 @@ include("../../Share/header.php");
                         }
                     }
                 ?>
-            <div class="card-footer text-center ">
-                    <details>
-                    <summary>Por: ---</summary>
-                    <p><a href="mailto:nancycolatoam@gmail.com">nancycolatoam@gmail.com</a></p>
-                    </details>
             </div>
         </div>
         
