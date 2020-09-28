@@ -144,6 +144,30 @@
               </li>
             </ul>
           </li>         
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="./Vistas/Ofertas/listado_ofertas.php" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Ofertas
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="./Vistas/Ofertas/listado_ofertas.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ofertas</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./Vistas/Ofertas/agregar_oferta.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Agregar Oferta</p>
+                </a>
+              </li>
+            </ul>
+          </li>         
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

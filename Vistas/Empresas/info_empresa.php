@@ -9,7 +9,7 @@
         //extraemos datos
         $id=$_GET["codigo"];
         // $sql="SELECT * FROM tblEmpresas WHERE idEmpresa=?";
-        $sql="SELECT e.idEmpresa as id, e.nombreEmpresa, e.telefono, e.codigoEmpresa, e.direccion, r.nombreRubro as rubro, e.porcentajeComision FROM tblEmpresas e
+        $sql="SELECT e.idEmpresa as id, e.nombreEmpresa, e.telefono, e.codigoEmpresa, e.direccion, e.correo, r.nombreRubro as rubro, e.porcentajeComision FROM tblEmpresas e
             INNER JOIN tblRubros r ON e.idRubro = r.idRubro WHERE e.idEmpresa=$id";
         $stmm = $conn->prepare($sql);
         $stmm->execute(array($id));
@@ -39,6 +39,7 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><b>Dirección: </b><?php echo $row->direccion?></li>
+                    <li class="list-group-item"><b>Correo: </b><?php echo $row->correo?></li>
                     <li class="list-group-item"><b>Telefono:</b> <?php echo $row->telefono?></li>
                     <li class="list-group-item"><b>Rubro: </b><?php echo $row->rubro?></li>
                     <li class="list-group-item"><b>Comision: </b><?php echo $row->porcentajeComision?>%</li>

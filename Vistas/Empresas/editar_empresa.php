@@ -44,16 +44,9 @@
                     <br>
 
                     <label for="codigo">codigo</label>
-                    <input type="text" name="codigo" id="codigo" class="form-control" value="<?php echo $row->codigoEmpresa ?>" require/>
+                    <input type="text" name="codigo" id="codigo" class="form-control" value="<?php echo $row->codigoEmpresa ?>" readonly require/>
                     <br>
 
-                    <label for="telefono">Telefono</label>
-                    <input type="text" name="telefono" id="telefono" class="form-control" value="<?php echo $row->telefono ?>" require/>
-                    <br>
-                    
-                    <label for="direccion">Direccion</label>
-                    <textarea type="text" name="direccion" id="direccion" class="form-control" col="3" require><?php echo $row->direccion ?></textarea>
-                    <br>
                     <label for="rubro">Rubro</label>
                     <select type="text" name="rubro" id="rubro" class="form-control" require>
                         <option value="<?php echo $row->idRubro ?>"><?php echo $row->rubro?></option>
@@ -63,6 +56,18 @@
                             }
                         ?>
                     </select>
+                    <br>
+
+                    <label for="telefono">Telefono</label>
+                    <input type="text" name="telefono" id="telefono" class="form-control" value="<?php echo $row->telefono ?>" require/>
+                    <br>
+                    
+                    <label for="correo">Correo Electronico</label>
+                    <input type="email" name="correo" id="correo" class="form-control" placeholder="alguien@gmail.com" require/>
+                    <br>
+                    
+                    <label for="direccion">Direccion</label>
+                    <textarea type="text" name="direccion" id="direccion" class="form-control" col="3" require><?php echo $row->direccion ?></textarea>
                     <br>
                     <label for="comision">Comision</label>
                     <input type="number" name="comision" id="comision" class="form-control"  placeholder="%" value="<?php echo $row->porcentajeComision?>" require/>
@@ -87,14 +92,13 @@
                    die("No se ha podido conectar con la base de datos :'( ");
                }
 
-               $sql = "UPDATE tblEmpresas SET nombreEmpresa='".$_POST["nombre"]."', codigoEmpresa='".$_POST["codigo"]."', telefono='".$_POST["telefono"]."', idRubro='".$_POST["rubro"]."',
+               $sql = "UPDATE tblEmpresas SET nombreEmpresa='".$_POST["nombre"]."', codigoEmpresa='".$_POST["codigo"]."', correo='".$_POST["correo"]."', telefono='".$_POST["telefono"]."', idRubro='".$_POST["rubro"]."',
                 direccion='".$_POST["direccion"]."', porcentajeComision='".$_POST["comision"]."' WHERE idEmpresa='".$_POST["id"]."'";
                $codigo=$_POST["id"];        
                $count = $conn->exec($sql);
                if($count > 0){
 
                    echo "<script type='text/javascript'>alert('Se ha modificado la informacion del Registro');</script>";
-                  
                    
                }else{
                    echo "<div class=\"alert alert-danger\" role=\"alert\" >";
