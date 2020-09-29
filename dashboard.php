@@ -51,17 +51,18 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
-      <h1 class="brand-text font-weight-light text-center text-uppercase"><b><i>Cuponera<i></b></h1>
+       <i class="brand-image img-circle mt-2 text-xl nav-icon " style="color:#fff" >C</i>
+
+      <span class="brand-text font-weight-light text-center text-uppercase"><b><i>Cuponera<i></b></span>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex text-center">
-        <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
-        </div>
-      </div>
+      <a class="brand-link">
+        <i class="brand-image img-circle mt-2 text-lg nav-icon fas fa-user" style="color:#fff" ></i>
+        <span class="brand-text font-weight-light text-center">Alexander Pierce</span>
+      </a>
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -78,7 +79,7 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
+              <i class="nav-icon fas fa-building"></i>
               <p>
                 Empresas
                 <i class="fas fa-angle-left right"></i>
@@ -101,7 +102,7 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="./Vistas/Clientes/listado_clientes.php" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
+              <i class="nav-icon fas fa-users"></i>
               <p>
                 Clientes
                 <i class="fas fa-angle-left right"></i>
@@ -116,7 +117,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <!-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
@@ -138,11 +139,11 @@
                 </a>
               </li>
             </ul>
-          </li>         
+          </li>          -->
           </li>
           <li class="nav-item has-treeview">
             <a href="./Vistas/Ofertas/listado_ofertas.php" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
+              <i class="nav-icon fas fa-tag"></i>
               <p>
                 Ofertas
                 <i class="fas fa-angle-left right"></i>
@@ -162,7 +163,16 @@
                 </a>
               </li>
             </ul>
-          </li>         
+          </li>  
+          <li class="nav-item has-treeview">
+            <a href="./Vistas/Rubros/listado_rubros.php" class="nav-link">
+              <i class="nav-icon fas fa-tasks"></i>
+              <p>
+                Rubros
+
+              </p>
+            </a>
+          </li>        
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
