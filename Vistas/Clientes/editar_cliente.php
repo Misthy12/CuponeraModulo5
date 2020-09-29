@@ -99,24 +99,32 @@
                             die("No se ha podido conectar con la base de datos :'( ");
                         }
 
-                        $sql = "UPDATE tblClientes SET nombresCliente='".$_POST["nombreCliente"]."', apellidosClientes='".$_POST["apellidoCliente"]."', telefono='".$_POST["telefono"]."', correoCliente='".$_POST["correo"]."',
-                            direccionCliente='".$_POST["direccion"]."', dui='".$_POST["dui"]."', estado='".$_POST["estado"]."' WHERE idCliente='".$_POST["id"]."'";
-                        $codigo=$_POST["id"];        
-                        $count = $conn->exec($sql);
-                        if($count > 0){
+                        if($_POST["nombreCliente"]!="" && $_POST["apellidoCliente"] != "" && $_POST["telefono"]!="" && $_POST["correo"]!="" && $_POST["direccion"]!="" && $_POST["dui"]!="" &&$_POST["clave"]!=""){
 
-                            echo "<script type='text/javascript'>alert('Se ha modificado la informacion del Cliente');</script>";
-                            
-                            
-                        }else{
-                            echo "<div class=\"alert alert-danger\" role=\"alert\" >";
-                            echo "No se ha modificado la informacion!\n";
-                            echo "</br>";
-                            echo "Error: ". $sql;
-                            print_r($conn->errorInfo());
-                            echo "</div>";
+                            $sql = "UPDATE tblClientes SET nombresCliente='".$_POST["nombreCliente"]."', apellidosClientes='".$_POST["apellidoCliente"]."', telefono='".$_POST["telefono"]."', correoCliente='".$_POST["correo"]."',
+                                direccionCliente='".$_POST["direccion"]."', dui='".$_POST["dui"]."', estado='".$_POST["estado"]."' WHERE idCliente='".$_POST["id"]."'";
+                            $codigo=$_POST["id"];        
+                            $count = $conn->exec($sql);
+                            if($count > 0){
+
+                                echo "<script type='text/javascript'>alert('Se ha modificado la informacion del Cliente');</script>";
+                                
+                                
+                            }else{
+                                echo "<div class=\"alert alert-danger\" role=\"alert\" >";
+                                echo "No se ha modificado la informacion!\n";
+                                echo "</br>";
+                                echo "Error: ". $sql;
+                                print_r($conn->errorInfo());
+                                echo "</div>";
+                            }
+                            CloseCon($conn);
                         }
-                        CloseCon($conn);
+                        else{
+                            echo "<div class=\"alert alert-danger \" role=\"alert\" >";
+                                echo "Aun faltan campos por llenar!! :(";
+                                echo "</div>";
+                        }
                     }
                     echo "
             </div>

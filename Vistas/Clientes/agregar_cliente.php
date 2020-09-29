@@ -8,7 +8,7 @@ include "../../Share/header.php";
                 <h4 class="text-center">Agregar Cliente</h4>
             </div>
             <div class="card-body">
-                <form action="" method="POST">
+                <form action="" method="POST" id="form">
                    
                     <div class="row col-12 form-group">
                         <div class="col-md-6 col-sm-12">
@@ -37,27 +37,29 @@ include "../../Share/header.php";
 
                     <div class="col-12">
                         <label for="direccion">Direccion</label>
-                        <textarea type="text" name="direccion" id="direccion" class="form-control" col="3" require></textarea>
+                        <textarea type="text" name="direccion" id="direccion" class="form-control" col="3" placeholder="Ingrese su direccion" require></textarea>
                         <br>
                     </div>
 
                     <div class="row col-12 form-group">
                         <div class="col-md-4 col-sm-12">
                             <label for="dui">DUI</label>
-                            <input type="text" name="dui" id="dui" class="form-control" require/>
+                            <input type="text" name="dui" id="dui" class="form-control" placeholder="0000000-0" require/>
                             <br>
                         </div>
                         <div class="col-md-4 col-sm-12">
                             <label for="clave">Contraseña</label>
-                            <input type="text" name="clave" id="clave" class="form-control" require/>
+                            <input type="password" name="clave" id="clave" class="form-control" require/>
                             <br>
                         </div>
                         <div class="col-md-4 col-sm-12">
                             <label for="estado">Estado</label>
-                            <select type="text" name="estado" id="estado" class="form-control" require>
-                                <option value="verificado">Verificado</option>
+                            <input type="text" name="estado" id="estado" class="form-control" value="No Verificado" readonly require/>
+
+                            <!-- <select type="text" name="estado" id="estado" class="form-control" require>
+                                <option value="verificado" >Verificado</option>
                                 <option value="noVerificado">No Verificado</option>
-                            </select>
+                            </select> -->
                             <br>
                         </div>
                     </div>
@@ -67,6 +69,7 @@ include "../../Share/header.php";
                     <br>
                 </form>
             </div>
+
             <div class="card-footer">
    
                 <!-- ENVIO DE DATOS -->
@@ -80,25 +83,32 @@ include "../../Share/header.php";
                             die("No se ha podido conectar con la base de datos :(");
                         }
 
-                        $sql = "INSERT INTO tblClientes(nombresCliente, apellidosClientes, telefono, correoCliente, direccionCliente,dui,password,estado)
-                                VALUES ('".$_POST["nombreCliente"]."','".$_POST["apellidoCliente"]."','".$_POST["telefono"]."','".$_POST["correo"]."',
-                                '".$_POST["direccion"]."','".$_POST["dui"]."','".$_POST["clave"]."','".$_POST["estado"]."')";
+                        if($_POST["nombreCliente"]!="" && $_POST["apellidoCliente"] != "" && $_POST["telefono"]!="" && $_POST["correo"]!="" && $_POST["direccion"]!="" && $_POST["dui"]!="" &&$_POST["clave"]!=""){
+                            $sql = "INSERT INTO tblClientes(nombresCliente, apellidosClientes, telefono, correoCliente, direccionCliente,dui,password,estado)
+                                    VALUES ('".$_POST["nombreCliente"]."','".$_POST["apellidoCliente"]."','".$_POST["telefono"]."','".$_POST["correo"]."',
+                                    '".$_POST["direccion"]."','".$_POST["dui"]."','".$_POST["clave"]."','".$_POST["estado"]."')";
 
-                        $count = $conn->exec($sql);
+                            $count = $conn->exec($sql);
 
-                        if($count > 0){
-                            echo "<div class=\"alert alert-success \" role=\"alert\" >";
-                            echo "Se ha guardado el Registro!! :)";
-                            echo "</div>";
-                        }else{
-                            echo "<div class=\"alert alert-danger \" role=\"alert\" >";
-                            echo "No se ha guardado el cliente!! :'( \n";
-                            echo "</br>";
-                            echo "Error: ". $sql;
-                            print_r($conn->errorInfo());
-                            echo "</div>";
+                            if($count > 0){
+                                echo "<div class=\"alert alert-success \" role=\"alert\" >";
+                                echo "Se ha guardado el Registro!! :)";
+                                echo "</div>";
+                            }else{
+                                echo "<div class=\"alert alert-danger \" role=\"alert\" >";
+                                echo "No se ha guardado el cliente!! :'( \n";
+                                echo "</br>";
+                                echo "Error: ". $sql;
+                                print_r($conn->errorInfo());
+                                echo "</div>";
+                            }
+                            CloseCon($conn);
                         }
-                        CloseCon($conn);
+                        else{
+                            echo "<div class=\"alert alert-danger \" role=\"alert\" >";
+                                echo "Aun faltan campos por llenar!! :<";
+                                echo "</div>";
+                        }
                     }
                 echo "
             </div>

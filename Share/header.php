@@ -18,8 +18,14 @@
     <link rel="stylesheet" href="../../Tools/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    
 </head>
 
-<?php include "menu.php"?>
+<?php
+    //zona horaria por defecto
+    date_default_timezone_set('America/El_Salvador');
+    //incluir el menu 
+    include "menu.php"
+?>
 
   

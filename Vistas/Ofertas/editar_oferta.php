@@ -142,23 +142,31 @@
                         die("No se ha podido conectar con la base de datos :'( ");
                     }
 
-                    $sql = "UPDATE tblCupones SET tituloOferta='".$_POST["nombre"]."', idSucursal='".$_POST["sucursal"]."', precioRegular='".$_POST["precioRegular"]."', precioOferta='".$_POST["precioOferta"]."', fechaInicio='".$_POST["inicio"]."',
-                    fechaFin='".$_POST["fin"]."', fechaLimite='".$_POST["limite"]."', cantidad='".$_POST["cant"]."', descripcion='".$_POST["descripcion"]."', estado='".$_POST["estado"]."' WHERE idCupon='".$_POST["id"]."'";
-                    $codigo=$_POST["id"];        
-                    $count = $conn->exec($sql);
-                    if($count > 0){
+                    if($_POST["empresa"]!="" && $_POST["nombre"]!=""  && $_POST["precioRegular"]!=""  && $_POST["precioOferta"]!="" && $_POST["inicio"]!="" && $_POST["fin"]!=""  && $_POST["limite"]!=""  && $_POST["cant"]!="" && $_POST["descripcion"]!=""){
 
-                        echo "<script type='text/javascript'>alert('Se ha modificado la informacion del Registro');</script>";
-                        
-                    }else{
-                        echo "<div class=\"alert alert-danger\" role=\"alert\" >";
-                        echo "No se ha modificado la informacion!\n";
-                        echo "</br>";
-                        echo "Error: ". $sql;
-                        print_r($conn->errorInfo());
-                        echo "</div>";
+                        $sql = "UPDATE tblCupones SET tituloOferta='".$_POST["nombre"]."', idSucursal='".$_POST["sucursal"]."', precioRegular='".$_POST["precioRegular"]."', precioOferta='".$_POST["precioOferta"]."', fechaInicio='".$_POST["inicio"]."',
+                        fechaFin='".$_POST["fin"]."', fechaLimite='".$_POST["limite"]."', cantidad='".$_POST["cant"]."', descripcion='".$_POST["descripcion"]."', estado='".$_POST["estado"]."' WHERE idCupon='".$_POST["id"]."'";
+                        $codigo=$_POST["id"];        
+                        $count = $conn->exec($sql);
+                        if($count > 0){
+
+                            echo "<script type='text/javascript'>alert('Se ha modificado la informacion del Registro');</script>";
+                            
+                        }else{
+                            echo "<div class=\"alert alert-danger\" role=\"alert\" >";
+                            echo "No se ha modificado la informacion!\n";
+                            echo "</br>";
+                            echo "Error: ". $sql;
+                            print_r($conn->errorInfo());
+                            echo "</div>";
+                        }
+                        CloseCon($conn);
                     }
-                    CloseCon($conn);
+                    else{
+                        echo "<div class=\"alert alert-danger \" role=\"alert\" >";
+                            echo "Aun faltan campos por llenar!! :<";
+                            echo "</div>";
+                    }
                 }
                 echo "
            </div>

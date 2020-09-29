@@ -48,17 +48,17 @@ include '../../Share/conexion.php';
                     <div class="row col-12 form-group">
                         <div class="col-md-4 col-sm-12">
                             <label for="inicio">Fecha Inicio</label>
-                            <input type="date" name="inicio" id="inicio" class="form-control"  require/>
+                            <input type="date" name="inicio" id="inicio" class="form-control" min="<?php date("Y-m-d") ?>" value="<?php date("Y-m-d") ?>" require/>
                             <br>
                         </div>
                         <div class="col-md-4 col-sm-12">
                             <label for="fin">Fecha Fin</label>
-                            <input type="date" name="fin" id="fin" class="form-control"  require/>
+                            <input type="date" name="fin" id="fin" class="form-control" min="<?php date("Y-m-d") ?>" require/>
                             <br>
                         </div>
                         <div class="col-md-4 col-sm-12">
                             <label for="limite">Fecha Limite</label>
-                            <input type="date" name="limite" id="limite" class="form-control"  require/>
+                            <input type="date" name="limite" id="limite" min class="form-control" min="<?php date("Y-m-d") ?>"  require/>
                             <br>
                         </div>
 
@@ -67,7 +67,7 @@ include '../../Share/conexion.php';
                     <div class="row col-12 form-group">
                             <div class="col-md-4 col-sm-12">
                                 <label for="cant">N° Disponibles</label>
-                                <input type="number" name="cant" id="cant" class="form-control" placeholder="1" step="1" require/>
+                                <input type="number" name="cant" id="cant" class="form-control" placeholder="1" step="1"/>
                                 <br>
                             </div>
                             
@@ -90,6 +90,9 @@ include '../../Share/conexion.php';
                     <br>
                 </form>
             </div>
+            
+            
+
             <div class="card-footer">                    
                 <!-- ENVIO DE DATOS -->
                 <?php
@@ -101,7 +104,7 @@ include '../../Share/conexion.php';
                             die("No se ha podido conectar con la base de datos :(");
                         }
 
-                        if($_POST["empresa"]!=""){
+                        if($_POST["empresa"]!="" && $_POST["nombre"]!=""  && $_POST["precioRegular"]!=""  && $_POST["precioOferta"]!="" && $_POST["inicio"]!="" && $_POST["fin"]!=""  && $_POST["limite"]!=""  && $_POST["cant"]!="" && $_POST["descripcion"]!=""){
 
                         $sql = "INSERT INTO tblCupones(tituloOferta, idSucursal, precioRegular, precioOferta,fechaInicio, fechaFin, fechaLimite, cantidad, estado, descripcion)
                                 VALUES ('".$_POST["nombre"]."','".$_POST["empresa"]."','".$_POST["precioRegular"]."',
@@ -133,7 +136,7 @@ include '../../Share/conexion.php';
             </div>
         </div>
     </div>";//fin del div card-footer, CARD, COL
-
+        
         //incluimos footer
         include "../../Share/footer.php";
         ?>

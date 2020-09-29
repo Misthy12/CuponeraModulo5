@@ -58,7 +58,7 @@ include '../../Share/conexion.php';
                     <div class="row col-12 form-group">
                         <div class="col-md-5 col-sm-12">  
                             <label for="telefono">Telefono</label>
-                            <input type="text" name="telefono" id="telefono" placeholder="7535-9699" class="form-control" require/>
+                            <input type="tel" name="telefono" id="telefono" placeholder="7535-9699" class="form-control" require/>
                             <br>
                         </div>
                             
@@ -88,7 +88,7 @@ include '../../Share/conexion.php';
                         if ($conn == null){
                             die("No se ha podido conectar con la base de datos :(");
                         }
-                        if($_POST["rubro"]!=""){
+                        if($_POST["rubro"]!="" && $_POST["nombre"]!="" && $_POST["comision"]!=""  && $_POST["direccion"]!=""  && $_POST["telefono"]!="" && $_POST["correo"]!="" ){
 
                             $sql = "INSERT INTO tblEmpresas(nombreEmpresa, codigoEmpresa, telefono, correo, clave, direccion,idRubro,porcentajeComision)
                                     VALUES ('".$_POST["nombre"]."','".$_POST["codigo"]."','".$_POST["telefono"]."', '".$_POST["correo"]."',

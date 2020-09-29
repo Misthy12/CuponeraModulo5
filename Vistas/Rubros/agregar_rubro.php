@@ -35,25 +35,31 @@ include "../../Share/header.php";
                         if ($conn == null){
                             die("No se ha podido conectar con la base de datos :(");
                         }
+                        if($_POST["nombreRubro"]!="" && $_POST["nombreRubro"]!=" "){
+                            $sql = "INSERT INTO tblRubros(nombreRubro, descripcion)
+                                    VALUES ('".$_POST["nombreRubro"]."','".$_POST["descripcion"]."')";
 
-                        $sql = "INSERT INTO tblRubros(nombreRubro, descripcion)
-                                VALUES ('".$_POST["nombreRubro"]."','".$_POST["descripcion"]."')";
+                            $count = $conn->exec($sql);
 
-                        $count = $conn->exec($sql);
-
-                        if($count > 0){
-                            echo "<div class=\"alert alert-success \" role=\"alert\" >";
-                            echo "Se ha guardado el Registro!! :)";
-                            echo "</div>";
-                        }else{
+                            if($count > 0){
+                                echo "<div class=\"alert alert-success \" role=\"alert\" >";
+                                echo "Se ha guardado el Registro!! :)";
+                                echo "</div>";
+                            }else{
+                                echo "<div class=\"alert alert-danger \" role=\"alert\" >";
+                                echo "No se ha guardado el Registro!! :'( \n";
+                                echo "</br>";
+                                echo "Error: ". $sql;
+                                print_r($conn->errorInfo());
+                                echo "</div>";
+                            }
+                            CloseCon($conn);
+                        }
+                        else{
                             echo "<div class=\"alert alert-danger \" role=\"alert\" >";
-                            echo "No se ha guardado el Registro!! :'( \n";
-                            echo "</br>";
-                            echo "Error: ". $sql;
-                            print_r($conn->errorInfo());
+                            echo "Aun faltan campos por llenar!! :(";
                             echo "</div>";
                         }
-                        CloseCon($conn);
                     }
                     echo "
             </div>

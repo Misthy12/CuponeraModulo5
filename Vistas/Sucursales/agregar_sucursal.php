@@ -47,7 +47,7 @@ include '../../Share/conexion.php';
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <label for="clave">Contraseña</label>
-                            <input type="text" name="clave" id="clave" class="form-control" require/>
+                            <input type="password" name="clave" id="clave" class="form-control" require/>
                             <br>
                         </div>
                     </div>
@@ -75,25 +75,32 @@ include '../../Share/conexion.php';
                             die("No se ha podido conectar con la base de datos :(");
                         }
 
-                        $sql = "INSERT INTO tblSucursales(nombreSucursal, idEmpresa, nombreEncargadoSuc, password,correo)
-                                VALUES ('".$_POST["nombre"]."','".$_POST["empresa"]."','".$_POST["encargado"]."',
-                                '".$_POST["clave"]."','".$_POST["correo"]."')";
+                        if($_POST["nombre"]!="" && $_POST["empresa"] != "" && $_POST["encargado"]!="" && $_POST["correo"]!="" && $_POST["clave"]!=""){
+                            
+                            $sql = "INSERT INTO tblSucursales(nombreSucursal, idEmpresa, nombreEncargadoSuc, password,correo)
+                                    VALUES ('".$_POST["nombre"]."','".$_POST["empresa"]."','".$_POST["encargado"]."',
+                                    '".$_POST["clave"]."','".$_POST["correo"]."')";
 
-                        $count = $conn->exec($sql);
+                            $count = $conn->exec($sql);
 
-                        if($count > 0){
-                            echo "<div class=\"alert alert-success \" role=\"alert\" >";
-                            echo "Se ha guardado el Registro!! :)";
-                            echo "</div>";
+                            if($count > 0){
+                                echo "<div class=\"alert alert-success \" role=\"alert\" >";
+                                echo "Se ha guardado el Registro!! :)";
+                                echo "</div>";
+                            }else{
+                                echo "<div class=\"alert alert-danger \" role=\"alert\" >";
+                                echo "No se ha guardado el Registro!! :'( \n";
+                                echo "</br>";
+                                echo "Error: ". $sql;
+                                print_r($conn->errorInfo());
+                                echo "</div>";
+                            }
+                            CloseCon($conn);
                         }else{
                             echo "<div class=\"alert alert-danger \" role=\"alert\" >";
-                            echo "No se ha guardado el Registro!! :'( \n";
-                            echo "</br>";
-                            echo "Error: ". $sql;
-                            print_r($conn->errorInfo());
-                            echo "</div>";
+                                echo "Aun faltan campos por llenar!! :<";
+                                echo "</div>";
                         }
-                        CloseCon($conn);
                     }
                     echo "
            </div>

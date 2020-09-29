@@ -1,8 +1,6 @@
 <?php
     include "../../Share/header.php";
     include "../../Share/conexion.php";
-        //zona horaria por defecto
-        date_default_timezone_set('America/El_Salvador');
 ?>
 
 
