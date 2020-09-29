@@ -3,7 +3,9 @@ include("../../Share/header.php");
 ?>
     <title>Clientes</title>
     
-
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
         <div class="card">
             <div class="card-header">
                 <div class="row">
@@ -36,12 +38,12 @@ include("../../Share/header.php");
                         </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody class="text-center">
                         <?php
                         foreach( $conn->query($sql) as $row){
                                 echo "<tr>";
                                     echo "<td>".$row["idCliente"]."</td>";
-                                    echo "<td>".$row["nombresCliente"] .$row["apellidosClientes"]."</td>";
+                                    echo "<td>".$row["nombresCliente"] ." ".$row["apellidosClientes"]."</td>";
                                     echo "<td>".$row["telefono"]."</td>";
                                     echo "<td>".$row["direccionCliente"]."</td>"; 
                                     echo "<td>".$row["dui"]."</td>"; 

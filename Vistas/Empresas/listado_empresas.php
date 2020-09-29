@@ -1,17 +1,18 @@
 <?php
 include("../../Share/header.php");
-?>
+?> 
     <title>Empresas</title>
     
-
+ <!-- Main content -->
+ <section class="content">
         <div class="card">
             <div class="card-header">
                 <div class="row">
-                    <div class="col-lg-10 col-md-7">
+                    <div class="col-lg-10 col-md-10 col-sm-12">
                         <h4 class="text-center">Empresas Registradas</h4>
                     </div>
                     
-                    <div class="col-lg-2 col-md-2">
+                    <div class="col-lg-2 col-md-2 col-sm-12">
                         <a href="agregar_empresa.php" class="btn-success btn" ><i class="fas fa-plus"></i>Agregar</a>
                     </div>
                 </div>
@@ -38,7 +39,7 @@ include("../../Share/header.php");
                         </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody  class="text-center">
                         <?php
                         foreach( $conn->query($sql) as $row){
                                 echo "<tr>";

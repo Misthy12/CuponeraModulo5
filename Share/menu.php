@@ -8,7 +8,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="./Vistas/Rubros/listado_rubros.php" class="nav-link">Rubros</a>
+        <a href="../../Vistas/Rubros/listado_rubros.php" class="nav-link">Rubros</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contactanos</a>
@@ -32,7 +32,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="../dashboard.php" class="brand-link">
       <h1 class="brand-text font-weight-light text-center text-uppercase"><b><i>Cuponera<i></b></h1>
     </a>
 
@@ -51,7 +51,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
+            <a href="../../dashboard.php" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -59,7 +59,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="../../Vistas/Empresas/listado_empresas.php" class="nav-link">
               <i class="nav-icon fas fa-building"></i>
               <p>
                 Empresas
@@ -68,13 +68,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./Vistas/Empresas/listado_empresas.php" class="nav-link">
+                <a href="../../Vistas/Empresas/listado_empresas.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Listado Empresas</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./Vistas/Sucursales/listado_sucursales.php" class="nav-link">
+                <a href="../../Vistas/Sucursales/listado_sucursales.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Listado Sucursales</p>
                 </a>
@@ -82,7 +82,7 @@
             </ul>
           </li>
           <li class="nav-item has-treeview">
-            <a href="./Vistas/Clientes/listado_clientes.php" class="nav-link">
+            <a href="../../Vistas/Clientes/listado_clientes.php" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Clientes
@@ -98,8 +98,8 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
-            <!-- <a href="#" class="nav-link">
+          <!--<li class="nav-item has-treeview">
+             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Usuarios
@@ -123,7 +123,7 @@
           </li>         
           </li> -->
           <li class="nav-item has-treeview">
-            <a href="./Vistas/Ofertas/listado_ofertas.php" class="nav-link">
+            <a href="../../Vistas/Ofertas/listado_ofertas.php" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Ofertas
@@ -132,13 +132,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./Vistas/Ofertas/listado_ofertas.php" class="nav-link">
+                <a href="../../Vistas/Ofertas/listado_ofertas.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Ofertas</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./Vistas/Ofertas/agregar_oferta.php" class="nav-link">
+                <a href="../../Vistas/Ofertas/agregar_oferta.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Agregar Oferta</p>
                 </a>
@@ -147,7 +147,7 @@
           </li>         
         
           <li class="nav-item has-treeview">
-            <a href="./Vistas/Ofertas/listado_rubros.php" class="nav-link">
+            <a href="../../Vistas/Rubros/listado_rubros.php" class="nav-link">
               <i class="nav-icon fas fa-tasks"></i>
               <p>
                 Rubros

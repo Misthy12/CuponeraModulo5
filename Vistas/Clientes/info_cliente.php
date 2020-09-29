@@ -25,16 +25,16 @@
       }
       
     ?>
-        <div class="col-8 offset-2">
+        <div class="col-md-6 offset-md-3 col-sm-12">
             <div class="card">
                 <div class="card-header bg-info">
                     <h2 class="text-center">Información Cliente</h2>
                 </div>
 
                 <div class="card-body">
-                <h3 class="card-title text-center "><?php echo $row->nombresCliente ." " .$row->apellidosClientes?></h3>
+                <h3 class="font-weight-bold text-center "><?php echo $row->nombresCliente ." " .$row->apellidosClientes?></h3>
                     <p class="card-text text-center"><b>Dui: </b> <?php echo $row->dui?></p>
-                </div>
+                
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><b>Correo:</b> <a href=" mailto:'<?php $row->correoCliente?>'"><u><i><?php echo $row->correoCliente?></i></u></a></li>
                     <li class="list-group-item"><b>Dirección: </b><?php echo $row->direccionCliente?></li>

@@ -3,17 +3,17 @@ include "../../Share/header.php";
 ?>
     <title>Ofertas</title>
     
-    <!-- Main content -->
-    <section class="content">
+<!-- Main content -->
+<section class="content">
     <div class="container-fluid">
         <div class="card">
             <div class="card-header">
                 <div class="row">
-                    <div class="col-lg-10 col-md-7">
+                    <div class="col-lg-10 col-md-10 col-sm-12">
                         <h4 class="text-center">Registro de Ofertas</h4>
                     </div>
                     
-                    <div class="col-lg-2 col-md-2">
+                    <div class="col-lg-2 col-md-2 col-sm-12">
                         <a href="agregar_oferta.php" class="btn-success btn" ><i class="fas fa-plus"></i>Agregar</a>
                     </div>
                 </div>
@@ -28,6 +28,7 @@ include "../../Share/header.php";
             INNER JOIN tblEstadosCupon e ON o.estado=e.idEstadoCupon";
 
             ?>
+
             <div class="card-body table-responsive">
                 <table class="table  table-hover table-striped ">
                     <thead class="bg-dark text-center">
@@ -43,7 +44,7 @@ include "../../Share/header.php";
                         </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody  class="text-center">
                         <?php
                         foreach( $conn->query($sql) as $row){
                                 echo "<tr>";

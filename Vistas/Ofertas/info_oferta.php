@@ -28,25 +28,26 @@
       }
       
     ?>
-        <div class="col-6 offset-3">
+        <div class="col-md-6 offset-md-3 col-sm-12">
             <div class="card">
                 <div class="card-header bg-info">
                     <h2 class="text-center">Información Oferta</h2>
                 </div>
 
                 <div class="card-body">
-                <h3 class="card-title text-center "><?php echo $row->nombre ?></h3>
-                    <p class="card-text text-justify"><b class="text-center">Sucursal:</b><?php echo $row->sucursal.". <br />".$row->descripcion?> <br></p>
+                    <h3 class=" font-weight-bold text-center "><?php echo $row->nombre ?></h3><br>
+                    <h5 class="card-subtitle text-center"><b >Sucursal:</b><?php echo $row->sucursal?></h5><br>
+                    <p class="card-text text-justify"><b >Descripcion Oferta: </b><?php echo $row->descripcion?> </p>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><b>Cantidad Limite de Cupones: </b><?php echo $row->cantidad?></li>
                     <li class="list-group-item"><b>Precio Regular: $</b><?php echo $row->precioRegular?></li>
                     <li class="list-group-item"><b>Precio Oferta: $</b><?php echo $row->precioRegular?></li>
-                    <li class="list-group-item"><b>Fecha Valides: $</b><?php echo $row->fechaInicio." al ". $row->fechaFin ?></li>
+                    <li class="list-group-item"><b>Fecha Valides: </b><?php echo $row->fechaInicio." al ". $row->fechaFin ?></li>
                     <li class="list-group-item"><b>Limite:</b> <?php echo $row->fechaLimite?></li>
                     <li class="list-group-item"><b>Estado: </b><?php echo $row->estado?></li>
                 </ul>
-                </div>
+                
 
                 <div class="card-footer">
                     <a href="listado_ofertas.php" class="btn btn-warning">Regresar</a>

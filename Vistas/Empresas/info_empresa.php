@@ -27,23 +27,23 @@
       }
       
     ?>
-        <div class="col-6 offset-3">
+        <div class="col-md-6 offset-md-3 col-sm-12">
             <div class="card">
                 <div class="card-header bg-info">
                     <h2 class="text-center">Información Empresa</h2>
                 </div>
 
                 <div class="card-body">
-                <h3 class="card-title text-center "><?php echo $row->nombreEmpresa ?></h3>
+                    <h3 class=" font-weight-bold  text-center "><?php echo $row->nombreEmpresa ?></h3>
                     <p class="card-text text-center"><b>Codigo:</b><?php echo $row->codigoEmpresa?></p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><b>Dirección: </b><?php echo $row->direccion?></li>
-                    <li class="list-group-item"><b>Correo: </b><?php echo $row->correo?></li>
-                    <li class="list-group-item"><b>Telefono:</b> <?php echo $row->telefono?></li>
-                    <li class="list-group-item"><b>Rubro: </b><?php echo $row->rubro?></li>
-                    <li class="list-group-item"><b>Comision: </b><?php echo $row->porcentajeComision?>%</li>
-                </ul>
+                
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><b>Dirección: </b><?php echo $row->direccion?></li>
+                        <li class="list-group-item"><b>Correo: </b><?php echo $row->correo?></li>
+                        <li class="list-group-item"><b>Telefono:</b> <?php echo $row->telefono?></li>
+                        <li class="list-group-item"><b>Rubro: </b><?php echo $row->rubro?></li>
+                        <li class="list-group-item"><b>Comision: </b><?php echo $row->porcentajeComision?>%</li>
+                    </ul>
                 </div>
 
                 <div class="card-footer">
