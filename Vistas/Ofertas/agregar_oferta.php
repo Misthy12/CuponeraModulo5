@@ -81,7 +81,7 @@ include '../../Share/conexion.php';
                     
                     <div class="col-12">
                         <label for="descripcion">Descripcion</label>
-                        <textarea name="descripcion" id="descripcion" class="form-control" col="3" require> Describe tu oferta</textarea>
+                        <textarea name="descripcion" id="descripcion" class="form-control" col="3" placeholder="Describe tu oferta" require> </textarea>
                         <br>
                     </div>
 

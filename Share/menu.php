@@ -30,9 +30,9 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
-       <i class="brand-image img-circle mt-2 text-xl nav-icon " style="color:#fff" >C</i>
+       <i class="brand-image img-circle mt-2 text-xl nav-icon " style="color:#fff" >LC</i>
 
-      <span class="brand-text font-weight-light text-center text-uppercase"><b><i>Cuponera<i></b></span>
+      <span class="brand-text font-weight-light text-center text-uppercase"><b><i>La Cuponera<i></b></span>
     </a>
 
     <!-- Sidebar -->
