@@ -2,21 +2,18 @@
 <div class="wrapper">
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
+    <!-- Left navbar links --> 
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../Vistas/Rubros/listado_rubros.php" class="nav-link">Rubros</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contactanos</a>
+        <a href="#" class="nav-link text-dark  font-weight-bold  ">LA CUPONERA!!</a>
       </li>
     </ul>
 
     <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
+    <!-- <form class="form-inline ml-3 align-self-end">
       <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
@@ -25,7 +22,7 @@
           </button>
         </div>
       </div>
-    </form>
+    </form> -->
   </nav>
   <!-- /.navbar -->
 

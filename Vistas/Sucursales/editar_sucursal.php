@@ -30,7 +30,7 @@
    ?>
 
 <!-- CUERPO DE LA PAGINA -->
-    <div class="col-md-8 offset-md-2">
+    <div class="col-md-8 offset-md-2 col-sm-12">
         <div class="card">
             <div class="card-header bg-success">
                 <h4 class="text-center font-weight-bold">Agregar Sucursal</h4>

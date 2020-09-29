@@ -26,15 +26,12 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="./Vistas/Rubros/listado_rubros.php" class="nav-link">Rubros</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contactanos</a>
+        <a href="#" class="nav-link">LA CUPONERA!</a>
       </li>
     </ul>
 
     <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
+    <!-- <form class="form-inline ml-3 offset-6 text-right">
       <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
@@ -43,7 +40,7 @@
           </button>
         </div>
       </div>
-    </form>
+    </form> -->
   </nav>
   <!-- /.navbar -->
 
@@ -204,7 +201,7 @@
     <section class="content">
       <div class="container-fluid">
 <!-- Small boxes (Stat box) -->
-<div class="row">
+        <div class="row">
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-info">

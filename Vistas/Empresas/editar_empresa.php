@@ -32,7 +32,7 @@
 
 <!-- CUERPO DE LA PAGINA -->
     <title>Empresas</title>
-    <div class="col-md-8 offset-2">
+    <div class="col-md-8 offset-md-2 col-sm-12">
         <div class="card">
             <div class="card-header bg-warning">
                 <h4 class="text-center">Editar Empresa</h4>

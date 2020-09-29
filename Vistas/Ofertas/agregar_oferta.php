@@ -5,7 +5,7 @@ include '../../Share/conexion.php';
     $consultaSucursal="SELECT *FROM tblSucursales";
 ?>
     <title>Oferta</title>
-    <div class="col-md-8 offset-2">
+    <div class="col-md-8 offset-md-2 col-sm-12">
         <div class="card">
             <div class="card-header bg-success">
                 <h3 class="text-center  font-weight-bold">Agregar Oferta</h3>

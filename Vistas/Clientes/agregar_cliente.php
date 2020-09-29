@@ -2,7 +2,7 @@
 include "../../Share/header.php";
 ?>
     <title>Clientes</title>
-    <div class="col-md-8 offset-2">
+    <div class="col-md-8 offset-md-2 col-sm-12">
         <div class="card">
             <div class="card-header bg-success">
                 <h4 class="text-center">Agregar Cliente</h4>

@@ -2,10 +2,16 @@
 
 function generarCodigo($longitud) {
     $key = '';
-    $pattern = '1234567890abcdefghijklmnopqrstuvwxyz';
-    $max = strlen($pattern)-1;
-    for($i=0;$i < $longitud;$i++) $key .= $pattern{mt_rand(0,$max)};
-    return $key;
+    $letras = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $numeros='1234567890';
+    $max = strlen($letras)-1;
+    $max2 = strlen($numeros)-1;
+    for($i=0;$i < $longitud;$i++) {
+        $key .= $letras{mt_rand(0,$max)};
+        $key .= $numeros{mt_rand(0,$max2)};
+    }
+        return $key;
+    
    }
 
    function generarClaves($long){

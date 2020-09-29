@@ -2,12 +2,12 @@
 include "../../Share/header.php";
  include "../../Share/funcionesGenerativas.php";
 include '../../Share/conexion.php';
- $conn=OpenCon();
+    $conn=OpenCon();
     $consultaRubro="SELECT *FROM tblRubros";
     
 ?>
     <title>Empresas</title>
-    <div class="col-md-8 offset-2">
+    <div class="col-md-8 offset-md-2 col-sm-12">
         <div class="card">
             <div class="card-header bg-success">
                 <h4 class="text-center">Agregar Empresa</h4>
@@ -24,7 +24,7 @@ include '../../Share/conexion.php';
                         
                         <div class="col-md-5 col-sm-12">
                             <label for="codigo">codigo</label>
-                            <input type="text" name="codigo" id="codigo" class="form-control" value="<?php echo generarCodigo(6);?>"  readonly require/>
+                            <input type="text" name="codigo" id="codigo" class="form-control" value="<?php echo generarCodigo(3)?>"  readonly require/>
                             <br>
                         </div>
                     </div>
