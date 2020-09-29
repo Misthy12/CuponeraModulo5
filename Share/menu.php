@@ -32,18 +32,19 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="../dashboard.php" class="brand-link">
-      <h1 class="brand-text font-weight-light text-center text-uppercase"><b><i>Cuponera<i></b></h1>
+    <a href="#" class="brand-link">
+       <i class="brand-image img-circle mt-2 text-xl nav-icon " style="color:#fff" >C</i>
+
+      <span class="brand-text font-weight-light text-center text-uppercase"><b><i>Cuponera<i></b></span>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex text-center">
-        <div class="info">
-          <a href="#" class="d-block ">Alexander Pierce</a>
-        </div>
-      </div>
+      <a class="brand-link">
+        <i class="brand-image img-circle mt-2 text-lg nav-icon fas fa-user" style="color:#fff" ></i>
+        <span class="brand-text font-weight-light text-center">Alexander Pierce</span>
+      </a>
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -124,7 +125,7 @@
           </li> -->
           <li class="nav-item has-treeview">
             <a href="../../Vistas/Ofertas/listado_ofertas.php" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
+              <i class="nav-icon fas fa-tag"></i>
               <p>
                 Ofertas
                 <i class="fas fa-angle-left right"></i>

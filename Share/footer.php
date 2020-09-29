@@ -23,16 +23,18 @@
     <!-- ./wrapper -->
  
     <!-- jQuery -->
-    <script src="../../Tools/lib/jquery/jquery.min.js"></script>
+    <script src="../../Tools/lib/jquery/dist/jquery.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="../../Tools/lib/jquery-ui/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-    <script>
-    $.widget.bridge('uibutton', $.ui.button);
-    </script>
-    <!-- Bootstrap 4 -->
     <script src="../../Tools/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+    <!-- OTON PARA MENU -->
+    <!-- <script>
+         $.widget.bridge('uibutton', $.ui.button);
+    </script> -->
+    <!-- Bootstrap 4 -->
+    
 
     <!-- AdminLTE App -->
     <script src="../../Tools/dist/js/adminlte.js"></script>
@@ -41,8 +43,5 @@
     <!-- AdminLTE for demo purposes -->
     <script src="../../Tools/dist/js/demo.js"></script>
     
-     <!-- JS SLIM-->
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
-   
 </body>
 </html>
