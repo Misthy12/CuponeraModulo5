@@ -1,3 +1,6 @@
+<?php
+include('Share/validar.php');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,7 +61,7 @@
       <!-- Sidebar user panel (optional) -->
       <a class="brand-link">
         <i class="brand-image img-circle mt-2 text-lg nav-icon fas fa-user" style="color:#fff" ></i>
-        <span class="brand-text font-weight-light text-center">Alexander Pierce</span>
+        <span class="brand-text font-weight-light text-center"><?php echo $_SESSION["nombre"]; ?></span>
       </a>
 
       <!-- Sidebar Menu -->
@@ -169,7 +172,15 @@
 
               </p>
             </a>
-          </li>        
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="Share/salir.php" class="nav-link">
+              <i class="nav-icon fas fa-turn-off"></i>
+              <p>
+                Salir
+              </p>
+            </a>
+          </li>             
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
