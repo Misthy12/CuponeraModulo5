@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-09-2020 a las 17:58:46
+-- Tiempo de generación: 30-09-2020 a las 07:00:18
 -- Versión del servidor: 10.4.13-MariaDB
--- Versión de PHP: 7.4.8
+-- Versión de PHP: 7.4.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,8 @@ CREATE TABLE `tblclientes` (
 --
 
 INSERT INTO `tblclientes` (`idCliente`, `nombresCliente`, `apellidosClientes`, `telefono`, `correoCliente`, `direccionCliente`, `dui`, `password`, `estado`) VALUES
-(1, 'Andres Roberto', 'Reinaldi', '2222-2222', 'akslasklfds@gmail.com', 'San Miguel', '0000000-0', '12345687', 'noVerificado');
+(1, 'Andres Roberto', 'Reinaldi', '2222-2222', 'akslasklfds@gmail.com', 'San Miguel', '0000000-0', '12345687', 'noVerificado'),
+(3, 'Fidel', 'García', '72740495', 'matinezfidel@gmail.com', 'Ruta SAM10N, Caserio Chispa contiguo a Resd. River Side North', '0000000-3', 'FIDEL12', 'No Verificado');
 
 -- --------------------------------------------------------
 
@@ -80,6 +81,13 @@ CREATE TABLE `tblcupones` (
   `justificacion` varchar(250) DEFAULT NULL,
   `otros` varchar(250) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tblcupones`
+--
+
+INSERT INTO `tblcupones` (`idCupon`, `tituloOferta`, `IdSucursal`, `precioRegular`, `precioOferta`, `fechaInicio`, `fechaFin`, `fechaLimite`, `cantidad`, `descripcion`, `estado`, `justificacion`, `otros`) VALUES
+(1, 'Camisas - 25', 2, '100.00', '75.00', '2020-09-30', '2020-11-25', '2020-11-30', 10, ' Por la compra de camisas aplica un 25% de Descuento', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -171,6 +179,27 @@ CREATE TABLE `tblsucursales` (
 INSERT INTO `tblsucursales` (`idSucursal`, `nombreSucursal`, `idEmpresa`, `nombreEncargadoSuc`, `password`, `correo`) VALUES
 (2, 'Texti San Miguel', 1, 'Rina Robledo', '12345678', 'texti.sanmiguel@gmail.com');
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tblusuarios`
+--
+
+CREATE TABLE `tblusuarios` (
+  `idUsuario` int(11) NOT NULL,
+  `nombreUsuario` varchar(150) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `password` varchar(250) NOT NULL,
+  `estado` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tblusuarios`
+--
+
+INSERT INTO `tblusuarios` (`idUsuario`, `nombreUsuario`, `email`, `password`, `estado`) VALUES
+(1, 'Fidel Martinez', 'matinezfidel@gmail.com', '12345678', '1');
+
 --
 -- Índices para tablas volcadas
 --
@@ -225,6 +254,12 @@ ALTER TABLE `tblsucursales`
   ADD KEY `idEmpresa` (`idEmpresa`);
 
 --
+-- Indices de la tabla `tblusuarios`
+--
+ALTER TABLE `tblusuarios`
+  ADD PRIMARY KEY (`idUsuario`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -232,7 +267,7 @@ ALTER TABLE `tblsucursales`
 -- AUTO_INCREMENT de la tabla `tblclientes`
 --
 ALTER TABLE `tblclientes`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tblcompracupon`
@@ -244,7 +279,7 @@ ALTER TABLE `tblcompracupon`
 -- AUTO_INCREMENT de la tabla `tblcupones`
 --
 ALTER TABLE `tblcupones`
-  MODIFY `idCupon` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idCupon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `tblempresas`
@@ -269,6 +304,12 @@ ALTER TABLE `tblrubros`
 --
 ALTER TABLE `tblsucursales`
   MODIFY `idSucursal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `tblusuarios`
+--
+ALTER TABLE `tblusuarios`
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
