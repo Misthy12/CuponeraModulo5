@@ -1,16 +1,14 @@
 <?php
     include "../../Share/header.php";
-    include "../../Share/conexion.php";
 ?>
 
-
-
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
         <div class="row col-12">
             <!-- CONSULTA PARA EXTARER DATOS -->
             <?php
+            include "../../Share/conexion.php";
                 $conn =OpenCon();
                 $sql="SELECT o.idCupon as id,o.tituloOferta as titulo, s.nombreSucursal as sucursal, o.precioRegular, o.precioOferta, e.definirEstado as estado, o.descripcion, o.fechaInicio, o.fechaFin, o.fechaLimite  FROM tblCupones o
                 INNER JOIN tblSucursales s ON o.idSucursal = s.idSucursal
@@ -19,7 +17,7 @@
 
                 foreach($conn->query($sql) as $row){
                     //para el rango de fechas a mostar
-                    $hoy= date("Y-m-d");//fecha actual
+                    //$hoy= date("Y-m-d");//fecha actual
 
                     //validacion de impresion de oferta
                     // if($hoy >= $row["fechaInicio"] && $hoy <= $row["fechaFin"]){

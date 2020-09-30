@@ -1,24 +1,7 @@
     <?php 
-    include "../../Share/header.php";
+      include "../../Share/header.php";
+      include "../../Share/funcionesAdminLC.php";
     ?>
-
-       <!-- Content Header (Page header) -->
-       <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Control</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
 
     <!-- Main content -->
     <section class="content">
@@ -29,14 +12,14 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3><?php echo numeroCupones(); ?></h3>
 
                 <p>Cupones</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer">Más informacion <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -44,14 +27,14 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <h3><?php echo (numeroEmpresas()/100); ?><sup style="font-size: 20px">%</sup></h3>
 
                 <p>Empresas</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="./Vistas/Empresas/listado_empresas.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="./Vistas/Empresas/listado_empresas.php" class="small-box-footer">Mas informacion <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -59,14 +42,14 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3> <?php echo numeroSucursales(); ?> </h3>
 
                 <p>Sucursales</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="./Vistas/Sucursales/listado_sucursales.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="./Vistas/Sucursales/listado_sucursales.php" class="small-box-footer">Mas informacion <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -74,7 +57,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>65</h3>
+                <h3> <?php echo numeroClientes()?> </h3>
 
                 <p>Clientes</p>
               </div>
@@ -86,7 +69,36 @@
           </div>
           <!-- ./col -->
         <!-- /.row (main row) -->
+          <!-- Panel de ofertas  -->
+          <div class="col-12">
+            <!-- CONSULTA PARA EXTARER DATOS -->
+            <?php
+                $conn =OpenCon();
+                $sql="SELECT o.idCupon as id,o.tituloOferta as titulo, s.nombreSucursal as sucursal, o.precioRegular, o.precioOferta, e.definirEstado as estado, o.descripcion, o.fechaInicio, o.fechaFin, o.fechaLimite  FROM tblCupones o
+                INNER JOIN tblSucursales s ON o.idSucursal = s.idSucursal
+                INNER JOIN tblEstadosCupon e ON o.estado=e.idEstadoCupon WHERE o.estado=1";
+
+
+                      //Imprecion de formulario
+                      echo "<div class='card' style='heigth: 25rem; ' >";
+                      echo "<div class='card-header bg-info text-center'> <h2>OFERTAS EN ESPERA DE APROBACION</h2></div>";
+                      foreach($conn->query($sql) as $row){
+                        // echo "<div class='card-body'>".$row["fechaInicio"].$row["fechaFin"]."</div>";
+                        echo "<div class='col-3'><div class='card-body'>";
+                        echo "<h4 class='h4 font-weight-bold text-center'>".$row["titulo"]."</h4><hr>";
+                        echo "<h6 class='h6 text-center'>".$row["sucursal"]."</h6>";
+                        echo "</div>";
+                        echo "<div class='card-footer text-center font-weight-bold'> Rango de fechas: ".$row["fechaInicio"].$row["fechaFin"]." <br>";
+                        echo "<a class='btn btn-sm btn-outline-info text-center btn-block fa-hand-eye' href=\"../Ofertas/editar_oferta.php?codigo=". $row["id"]."\" ><i class='fas fa-edit'></i></a> \n";
+                        echo "</div></div>";
+                    // }
+                }
+                CloseCon($conn);
+            ?>
+        </div><!--FIN DEL ROW-->
 
         <?php      
          include "../../Share/footer.php";
         ?>
+
+        

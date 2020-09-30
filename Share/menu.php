@@ -1,29 +1,23 @@
+<?php
+  include('validar.php');
+?>
+
+
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-<!-- Navbar -->
+<!-- Navbar -->  
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links --> 
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
-      </li>
+      </li>  
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link text-dark  font-weight-bold  ">LA CUPONERA!!</a>
+        <a href="#" class="nav-link text-dark  font-weight-bold  ">LA CUPONERA!!</a>  
       </li>
-    </ul>
+    </ul>  
 
-    <!-- SEARCH FORM -->
-    <!-- <form class="form-inline ml-3 align-self-end">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form> -->
-  </nav>
+  </nav>  
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
@@ -40,7 +34,7 @@
       <!-- Sidebar user panel (optional) -->
       <a class="brand-link">
         <i class="brand-image img-circle mt-2 text-lg nav-icon fas fa-user" style="color:#fff" ></i>
-        <span class="brand-text font-weight-light text-center">Alexander Pierce</span>
+        <span class="brand-text font-weight-light text-center"><?php echo $_SESSION["nombre"]; ?></span>
       </a>
 
       <!-- Sidebar Menu -->
@@ -49,7 +43,18 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="../../dashboard.php" class="nav-link active">
+            <?php
+              if($_SESSION["login"]="Cliente"){
+               echo "<a href='../../Vistas/Index/IndexClientes.php' class='nav-link active'>";
+              }
+              else if($_SESSION["login"]="Sucursal"){
+                echo "<a href='../../Vistas/Index/IndexEmpresas.php' class='nav-link active'>";
+              }
+              else{
+                echo "<a href='../../Vistas/Index/IndexAdminLC.php' class='nav-link active'>";
+              }
+            ?>
+            
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -57,7 +62,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="../../Vistas/Empresas/listado_empresas.php" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-building"></i>
               <p>
                 Empresas
@@ -80,7 +85,7 @@
             </ul>
           </li>
           <li class="nav-item has-treeview">
-            <a href="../../Vistas/Clientes/listado_clientes.php" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Clientes
@@ -121,7 +126,7 @@
           </li>         
           </li> -->
           <li class="nav-item has-treeview">
-            <a href="../../Vistas/Ofertas/listado_ofertas.php" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tag"></i>
               <p>
                 Ofertas
@@ -152,7 +157,15 @@
 
               </p>
             </a>
-          </li>         
+          </li>  
+          <li class="nav-item has-treeview">
+            <a href="../../Share/salir.php" class="nav-link">
+              <i class="nav-icon fas fa-power-off"></i>
+              <p>
+                Salir
+              </p>
+            </a>
+          </li>        
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
