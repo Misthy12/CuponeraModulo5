@@ -65,7 +65,7 @@ session_start();
             <div class="col-8">
               <div class="icheck-primary">
                 <label for="remember">
-                  <a href="Vistas/Clientes/agregar_cliente.php">Registrarme</a>
+                  <a href="Registro.php">Registrarme</a>
                 </label>
               </div>
             </div>
@@ -204,7 +204,7 @@ else if (isset($_POST['btnEmpresa'])) { //comprobamos si se envían variables de
     $_SESSION["nombre"]=$data->nombreSucursal;
     //$_SESSION["sucursal"]=$data->nombreSucursal;
     $_SESSION["login"]="Sucursal";//identificar la sesion
-    print "<script> window.location = '';</script>";
+    print "<script> window.location = './Vistas/Index/IndexEmpresas.php';</script>";
   }
   else
   {

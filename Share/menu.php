@@ -44,10 +44,10 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
             <?php
-              if($_SESSION["login"]="Cliente"){
+              if($_SESSION["login"]=="Cliente"){
                echo "<a href='../../Vistas/Index/IndexClientes.php' class='nav-link active'>";
               }
-              else if($_SESSION["login"]="Sucursal"){
+              else if($_SESSION["login"]=="Sucursal"){
                 echo "<a href='../../Vistas/Index/IndexEmpresas.php' class='nav-link active'>";
               }
               else{
@@ -61,6 +61,76 @@
               </p>
             </a>
           </li>
+          <?php
+              if($_SESSION["login"]=="Cliente"){?>
+<li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tag"></i>
+              <p>
+                Cupones
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../../Vistas/Ofertas/listado_ofertas.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Cupones</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../../Vistas/Ofertas/agregar_oferta.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Mis compras</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+              <?php echo $_SESSION["nombre"]; ?>
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../../Vistas/Clientes/editar_cliente.php?codigo=<?php echo$_SESSION['id']?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Mis Datos Personales</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <?php
+              }
+              if($_SESSION["login"]=="Sucursal"||$_SESSION["login"]=="Admin" ){?>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tag"></i>
+              <p>
+                Ofertas
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../../Vistas/Ofertas/listado_ofertas.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ofertas</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../../Vistas/Ofertas/agregar_oferta.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Agregar Oferta</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+              <?php } 
+              if($_SESSION["login"]=="Admin"){?>    
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-building"></i>
@@ -125,29 +195,7 @@
             </ul>
           </li>         
           </li> -->
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tag"></i>
-              <p>
-                Ofertas
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../../Vistas/Ofertas/listado_ofertas.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Ofertas</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../../Vistas/Ofertas/agregar_oferta.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Agregar Oferta</p>
-                </a>
-              </li>
-            </ul>
-          </li>         
+     
         
           <li class="nav-item has-treeview">
             <a href="../../Vistas/Rubros/listado_rubros.php" class="nav-link">
@@ -157,7 +205,8 @@
 
               </p>
             </a>
-          </li>  
+          </li> 
+          <?php }?> 
           <li class="nav-item has-treeview">
             <a href="../../Share/salir.php" class="nav-link">
               <i class="nav-icon fas fa-power-off"></i>

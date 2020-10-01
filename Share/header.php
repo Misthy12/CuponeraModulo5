@@ -18,9 +18,12 @@
     <link rel="stylesheet" href="../../Tools/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    
-</head>
+  <!-- Theme Alert -->
+  <link rel="stylesheet" href="../../Tools/lib/sweetAlert2/asweetalert2.min.css">
+        <!-- Alert -->
 
+</head>
+<script src="../../Tools/lib/sweetAlert2/sweetalert2.all.min.js"></script>
 <?php
     //zona horaria por defecto
     date_default_timezone_set('America/El_Salvador');

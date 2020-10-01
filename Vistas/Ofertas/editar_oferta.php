@@ -47,13 +47,13 @@
                 <div class="row col-12 form-group">
                     <div class="col-md-7 col-sm-12">
                         <label for="nombre">Titulo</label>
-                        <input type="text" name="nombre" id="nombre" class="form-control" value="<?php echo $row->nombre ?>"  require/>
+                        <input type="text" name="nombre" id="nombre" class="form-control" value="<?php echo $row->nombre ?>"  required/>
                         <br>
                     </div>
                     
                     <div class="col-md-5 col-sm-12">
                         <label for="sucursal">Sucursal</label>
-                        <select type="text" name="sucursal" id="sucursal" class="form-control"  require>
+                        <select type="text" name="sucursal" id="sucursal" class="form-control"  required>
                         <option value="<?php echo $row->idSucursal ?>" ><?php echo $row->sucursal?></option>
                         <?php
                                 foreach ($conn->query($consultaSucursal) as $valor) {
@@ -68,12 +68,12 @@
                 <div class="row col-12 form-group">
                     <div class="col-md-6 col-sm-12">
                         <label for="precioRegular">Precio Regular</label>
-                        <input type="number" name="precioRegular" id="precioRegular" step="0.5" class="form-control" value="<?php echo $row->precioRegular ?>"  require/>
+                        <input type="number" name="precioRegular" id="precioRegular" step="0.5" class="form-control" value="<?php echo $row->precioRegular ?>"  required/>
                         <br>
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <label for="precioOferta">Precio Oferta</label>
-                        <input type="number" name="precioOferta" id="precioOferta" step="0.5" class="form-control" value="<?php echo $row->precioOferta ?>"  require/>
+                        <input type="number" name="precioOferta" id="precioOferta" step="0.5" class="form-control" value="<?php echo $row->precioOferta ?>"  required/>
                         <br>
                     </div>
                 </div>
@@ -81,17 +81,17 @@
                 <div class="row col-12 form-group">
                     <div class="col-md-4 col-sm-12">
                         <label for="inicio">Fecha Inicio</label>
-                        <input type="date" name="inicio" id="inicio" class="form-control" value="<?php echo $row->fechaInicio ?>"  require/>
+                        <input type="date" name="inicio" id="inicio" class="form-control" value="<?php echo $row->fechaInicio ?>"  required/>
                         <br>
                     </div>
                     <div class="col-md-4 col-sm-12">
                         <label for="fin">Fecha Fin</label>
-                        <input type="date" name="fin" id="fin" class="form-control" value="<?php echo $row->fechaFin ?>"   require/>
+                        <input type="date" name="fin" id="fin" class="form-control" value="<?php echo $row->fechaFin ?>"   required/>
                         <br>
                     </div>
                     <div class="col-md-4 col-sm-12">
                         <label for="limite">Fecha Limite</label>
-                        <input type="date" name="limite" id="limite" class="form-control" value="<?php echo $row->fechaLimite ?>"   require/>
+                        <input type="date" name="limite" id="limite" class="form-control" value="<?php echo $row->fechaLimite ?>"   required/>
                         <br>
                     </div>
 
@@ -100,12 +100,12 @@
                 <div class="row col-12 form-group">
                         <div class="col-md-4 col-sm-12">
                             <label for="cant">N° Disponibles</label>
-                            <input type="number" name="cant" id="cant" class="form-control" value="<?php echo $row->cantidad ?>"  step="1" require/>
+                            <input type="number" name="cant" id="cant" class="form-control" value="<?php echo $row->cantidad ?>"  step="1" required/>
                             <br>
                         </div>
                         <div class="col-md-8 col-sm-12">
                             <label for="estado">Estado</label>
-                            <select type="text" name="estado" id="estado" class="form-control"  require>
+                            <select type="text" name="estado" id="estado" class="form-control"  required>
                                 <option value="<?php echo $row->idEstado ?>" ><?php echo $row->estado?></option>
                                  <?php
                                     foreach ($conn->query($consultaEstado) as $valor) {
@@ -118,11 +118,11 @@
                 
                 <div class="col-12">
                     <label for="descripcion">Descripcion</label>
-                    <textarea name="descripcion" id="descripcion" class="form-control" col="3" require><?php echo $row->descripcion ?> </textarea>
+                    <textarea name="descripcion" id="descripcion" class="form-control" col="3" required><?php echo $row->descripcion ?> </textarea>
                     <br>
                 </div>
                                     
-                <input type="hidden" name="id" id="id" class="form-control" value="<?php echo $row->id ?>"  require/>
+                <input type="hidden" name="id" id="id" class="form-control" value="<?php echo $row->id ?>"  required/>
                 
                 <input type="Submit" value="Guardar" name="submit" class="btn btn-success">
                 <a href="listado_ofertas.php" class="btn btn-info">Regresar</a>
@@ -142,7 +142,7 @@
                         die("No se ha podido conectar con la base de datos :'( ");
                     }
 
-                    if($_POST["empresa"]!="" && $_POST["nombre"]!=""  && $_POST["precioRegular"]!=""  && $_POST["precioOferta"]!="" && $_POST["inicio"]!="" && $_POST["fin"]!=""  && $_POST["limite"]!=""  && $_POST["cant"]!="" && $_POST["descripcion"]!=""){
+                    if($_POST["sucursal"]!="" && $_POST["nombre"]!=""  && $_POST["precioRegular"]!=""  && $_POST["precioOferta"]!="" && $_POST["inicio"]!="" && $_POST["fin"]!=""  && $_POST["limite"]!=""  && $_POST["cant"]!="" && $_POST["descripcion"]!=""){
 
                         $sql = "UPDATE tblCupones SET tituloOferta='".$_POST["nombre"]."', idSucursal='".$_POST["sucursal"]."', precioRegular='".$_POST["precioRegular"]."', precioOferta='".$_POST["precioOferta"]."', fechaInicio='".$_POST["inicio"]."',
                         fechaFin='".$_POST["fin"]."', fechaLimite='".$_POST["limite"]."', cantidad='".$_POST["cant"]."', descripcion='".$_POST["descripcion"]."', estado='".$_POST["estado"]."' WHERE idCupon='".$_POST["id"]."'";

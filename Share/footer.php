@@ -35,7 +35,7 @@
          $.widget.bridge('uibutton', $.ui.button);
     </script> -->
     <!-- Bootstrap 4 -->
-    
+
 
     <!-- AdminLTE App -->
     <script src="../../Tools/dist/js/adminlte.js"></script>
