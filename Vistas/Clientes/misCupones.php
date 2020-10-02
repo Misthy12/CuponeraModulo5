@@ -13,7 +13,7 @@
                 <a class="nav-link active" id="activas-tab" data-toggle="tab" href="#activas" role="tab" aria-controls="activas" aria-selected="true">Activos</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                <a class="nav-link" id="espera-tab" data-toggle="tab" href="#espera" role="tab" aria-controls="espera" aria-selected="false">Vencidos</a>
+                <a class="nav-link" id="vencidos-tab" data-toggle="tab" href="#vencidos" role="tab" aria-controls="vencidos" aria-selected="false">Vencidos</a>
                 </li>
             </ul>
          <div class="tab-content col-12" id="myTabContent">
@@ -25,11 +25,11 @@
                             $sql="SELECT o.idCupon as id,o.tituloOferta as titulo, s.nombreSucursal as sucursal, o.precioRegular, o.precioOferta, e.definirEstado as estado, o.descripcion, o.fechaInicio, o.fechaFin, o.fechaLimite  FROM tblCupones o
                             INNER JOIN tblSucursales s ON o.idSucursal = s.idSucursal
                             INNER JOIN tblEstadosCupon e ON o.estado=e.idEstadoCupon WHERE o.estado=2";
-
+                            echo "<div class='row col-12'>";
                             //Imprecion de formulario
                             foreach($conn->query($sql) as $row){
                                 echo "<div class='card col-sm-12 col-md-3' >";
-                                echo "<div class='card-header bg-info'> <h4 class='text-center'>OFERTA ACTIVA</h4></div>";
+                                echo "<div class='card-header bg-success'> <h4 class='text-center'>OFERTA ACTIVA</h4></div>";
                                 // echo "<div class='card-body'>".$row["fechaInicio"].$row["fechaFin"]."</div>";
                                     echo "<div class='card-body '>";
                                     echo "<h6 class='h5 text-center font-weight-bold'>".$row["sucursal"]."</h6>";
@@ -42,11 +42,12 @@
                                     echo "</div>";
                                     // }
                                 }
-                                CloseCon($conn);
+                            echo "</div>";
+                            CloseCon($conn);
                     ?>
                 </div>
             </div>
-            <div class="tab-pane fade  col-12" id="espera" role="tabpanel" aria-labelledby="espera-tab">
+            <div class="tab-pane fade  col-12" id="vencidos" role="tabpanel" aria-labelledby="vencidos-tab">
                 <div class="card card-body">
                     <?php
                             $conn =OpenCon();
@@ -58,7 +59,7 @@
                             //Imprecion de formulario
                             foreach($conn->query($sql) as $row){
                                 echo "<div class='card col-sm-12 col-md-3'>";
-                                echo "<div class='card-header bg-info'> <h4 class='text-center'>OFERTA VENCIDA</h4></div>";
+                                echo "<div class='card-header bg-danger'> <h4 class='text-center'>OFERTA VENCIDA</h4></div>";
                                 echo "<div class='card-body'>";
                                 echo "<h6 class='h5 text-center font-weight-bold'>".$row["sucursal"]."</h6>";
                                 echo "<p class='text-lg-justify'> <b>OFERTA! </b>".$row["descripcion"]."</p> <hr>";

@@ -28,7 +28,7 @@
                             $sql="SELECT o.idCupon as id,o.tituloOferta as titulo, s.nombreSucursal as sucursal, o.precioRegular, o.precioOferta, e.definirEstado as estado, o.descripcion, o.fechaInicio, o.fechaFin, o.fechaLimite  FROM tblCupones o
                             INNER JOIN tblSucursales s ON o.idSucursal = s.idSucursal
                             INNER JOIN tblEstadosCupon e ON o.estado=e.idEstadoCupon WHERE o.estado=2 AND s.idSucursal = $idSuc";
-
+                            echo "<div class='row col-12'>";
                             //Imprecion de formulario
                             foreach($conn->query($sql) as $row){
                                 echo "<div class='card col-sm-12 col-md-3' >";
@@ -43,6 +43,7 @@
                                     echo "</div>";
                                     // }
                                 }
+                            echo "</div>";
                                 CloseCon($conn);
                     ?>
                 </div>
@@ -55,11 +56,12 @@
                             $sql="SELECT o.idCupon as id,o.tituloOferta as titulo, s.nombreSucursal as sucursal, o.precioRegular, o.precioOferta, e.definirEstado as estado, o.descripcion, o.fechaInicio, o.fechaFin, o.fechaLimite  FROM tblCupones o
                             INNER JOIN tblSucursales s ON o.idSucursal = s.idSucursal
                             INNER JOIN tblEstadosCupon e ON o.estado=e.idEstadoCupon WHERE o.estado=1 AND s.idSucursal = $idSuc";
-
+                            
+                            echo "<div class='row col-12'>";
                             //Imprecion de formulario
                             foreach($conn->query($sql) as $row){
                                 echo "<div class='card col-sm-12 col-md-3' >";
-                                echo "<div class='card-header bg-info'> <h4 class='text-center'>OFERTA EN ESPERA</h4></div>";
+                                echo "<div class='card-header bg-warning'> <h4 class='text-center'>OFERTA EN ESPERA</h4></div>";
                                 // echo "<div class='card-body'>".$row["fechaInicio"].$row["fechaFin"]."</div>";
                                     echo "<div class='card-body '>";
                                     echo "<h6 class='h6 font-weight-bold text-center'>".$row["titulo"]."</h6><hr>";
@@ -69,8 +71,9 @@
                                     echo "<a type='submit'  href=\"../Ofertas/info_oferta.php?codigo=".$row["id"]."\" class='fas fa-eye btn btn-sm btn-outline-info text-center btn-block' title='Ver'>Ver Oferta</a></div>";
                                     echo "</div>";
                                     // }
-                                }
-                                CloseCon($conn);
+                            }
+                            echo "</div>";
+                            CloseCon($conn);
                     ?>
                 </div>
             </div>
@@ -82,11 +85,12 @@
                             $sql="SELECT o.idCupon as id,o.tituloOferta as titulo, s.nombreSucursal as sucursal, o.precioRegular, o.precioOferta, e.definirEstado as estado, o.descripcion, o.fechaInicio, o.fechaFin, o.fechaLimite  FROM tblCupones o
                             INNER JOIN tblSucursales s ON o.idSucursal = s.idSucursal
                             INNER JOIN tblEstadosCupon e ON o.estado=e.idEstadoCupon WHERE o.estado=3 AND s.idSucursal = $idSuc";
-
+                            
+                            echo "<div class='row col-12'>";
                             //Imprecion de formulario
                             foreach($conn->query($sql) as $row){
                                 echo "<div class='card col-sm-12 col-md-3' >";
-                                echo "<div class='card-header bg-info'> <h4 class='text-center'>OFERTA RECHAZADA</h4></div>";
+                                echo "<div class='card-header bg-danger'> <h4 class='text-center'>OFERTA RECHAZADA</h4></div>";
                                 // echo "<div class='card-body'>".$row["fechaInicio"].$row["fechaFin"]."</div>";
                                     echo "<div class='card-body '>";
                                     echo "<h6 class='h6 font-weight-bold text-center'>".$row["titulo"]."</h6><hr>";
@@ -97,6 +101,7 @@
                                     echo "</div>";
                                     // }
                                 }
+                                echo "</div>";
                                 CloseCon($conn);
                     ?>
                 </div>
