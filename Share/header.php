@@ -19,7 +19,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <!-- Theme Alert -->
-  <link rel="stylesheet" href="../../Tools/lib/sweetAlert2/asweetalert2.min.css">
+  <link rel="stylesheet" href="../../Tools/lib/sweetAlert2/sweetalert2.min.css">
         <!-- Alert -->
 
 </head>

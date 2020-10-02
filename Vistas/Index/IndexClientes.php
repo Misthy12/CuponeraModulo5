@@ -1,5 +1,6 @@
 <?php
     include "../../Share/header.php";
+    include "../../Share/conexion.php";
 ?>
 
 <!-- Main content -->
@@ -8,7 +9,6 @@
         <div class="row col-12">
             <!-- CONSULTA PARA EXTARER DATOS -->
             <?php
-            include "../../Share/conexion.php";
                 $conn =OpenCon();
                 $sql="SELECT o.idCupon as id,o.tituloOferta as titulo, s.nombreSucursal as sucursal, o.precioRegular, o.precioOferta, e.definirEstado as estado, o.descripcion, o.fechaInicio, o.fechaFin, o.fechaLimite  FROM tblCupones o
                 INNER JOIN tblSucursales s ON o.idSucursal = s.idSucursal
@@ -22,11 +22,11 @@
                     //validacion de impresion de oferta
                     // if($hoy >= $row["fechaInicio"] && $hoy <= $row["fechaFin"]){
                         //Imprecion de formulario
-                        echo "<form class='col-md-3 col-sm-12' > <div class='card' style='heigth: 25rem; ' >";
+                        echo "<form class='col-md-3 col-sm-12' > <div class='card' style='heigth: 25rem'>";
                         echo "<div class='card-header bg-info'>";
                         echo "<h4 class='h4 font-weight-bold text-center'>".$row["titulo"]."</h4><hr>";
                         echo "<h6 class='h6 text-center'>".$row["sucursal"]."</h6></div>";
-                        // echo "<div class='card-body'>".$row["fechaInicio"].$row["fechaFin"]."</div>";
+                        
                         echo "<div class='card-body'>";
                         echo "<p class='text-lg-justify'> <b>OFERTA! </b>".$row["descripcion"]."</p> <hr>";
                         echo "<p class='text-lg-center'> <b>Precio Oferta: </b>$".$row["precioOferta"]."</p> <hr>";
@@ -35,39 +35,39 @@
                         echo "<div class='card-footer text-center font-weight-bold'> Ultima Fecha de Canje: ".$row["fechaLimite"]." <br>";
                         echo "<button type='button'  data-toggle='modal' data-target='#Cupon".$row["id"]."' class='fas fa-hand-point-up btn btn-sm btn-outline-info text-center btn-block' title='Comprar'>Comprar</button></div>";
                         echo "</div></form>";
-                        ?>
+              ?>
                         <!-- Modal -->
-<div class="modal fade" id="Cupon<?php echo$row["id"] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><?php echo $row["titulo"] ?></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <Form action="" method="POST">
-      <input type="text" name="idCliente" id="idCliente" hidden value="<?php echo $_SESSION["id"]?>">
-      <input type="text" name="idCupon" id="idCupon"  hidden value="<?php echo$row["id"]?>">
-      <input type="text" class="card" name="CodigoCompra" id="codigoCompra" value="EM10CUPO1575">
+              <div class="modal fade" id="Cupon<?php echo$row["id"] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel"><?php echo $row["titulo"] ?></h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                    <Form action="" method="POST">
+                    <input type="text" name="idCliente" id="idCliente" hidden value="<?php echo $_SESSION["id"]?>">
+                    <input type="text" name="idCupon" id="idCupon"  hidden value="<?php echo$row["id"]?>">
+                    <input type="text" class="card" name="CodigoCompra" id="codigoCompra" value="EM10CUPO1575">
 
-      Total $<?php echo $row["precioOferta"] ?>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" id="btnComprar" name="btnComprar" class="btn btn-primary">Comprar</button>
-      </div>
-      </Form>
-    </div>
-  </div>
-</div>
-                        <?php
-                        
-                    // }
+                    Total $<?php echo $row["precioOferta"] ?>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="submit" id="btnComprar" name="btnComprar" class="btn btn-primary">Comprar</button>
+                    </div>
+                    </Form>
+                  </div>
+                </div>
+              </div>
+              
+              <?php
+                   
                 }
 
-                CloseCon($conn);
+                    CloseCon($conn);
                     if(isset($_POST["btnComprar"])){
                         $conn=OpenCon();
 
@@ -89,7 +89,7 @@
                                     icon: 'success',
                                     title: 'EXITO!',
                                     text: 'Compra Realizada con Exito!'
-                                })
+                                });
                                 </script>
                                 <?php
                             }else{
@@ -104,7 +104,7 @@
                         }
                         else{
                             echo "<div class=\"alert alert-danger \" role=\"alert\" >";
-                                echo "Aun faltan campos por llenar!! :<";
+                                echo "Aun faltan campos por llenar!! :(";
                                 echo "</div>";
                         }
                     }

@@ -24,16 +24,12 @@
  
     <!-- jQuery -->
     <script src="../../Tools/lib/jquery/dist/jquery.min.js"></script>
-    <script src="../../Tools/lib/jquery/dist/jquery.validate.min.js"></script>
+    <script src="../../Tools/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
-    <script src="../../Tools/lib/jquery-ui/jquery-ui.min.js"></script>
+    <!-- <script src="../../Tools/lib/jquery-ui/jquery-ui.min.js"></script> -->
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script src="../../Tools/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- OTON PARA MENU -->
-    <!-- <script>
-         $.widget.bridge('uibutton', $.ui.button);
-    </script> -->
     <!-- Bootstrap 4 -->
 
 
