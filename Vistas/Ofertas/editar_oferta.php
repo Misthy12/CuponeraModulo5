@@ -105,11 +105,18 @@
                         </div>
                         <div class="col-md-8 col-sm-12">
                             <label for="estado">Estado</label>
+                                  
                             <select type="text" name="estado" id="estado" class="form-control"  required>
-                                <option value="<?php echo $row->idEstado ?>" ><?php echo $row->estado?></option>
+                                <option value="<?php echo $row->idEstado ?>" selected disabled><?php echo $row->estado?></option>
                                  <?php
                                     foreach ($conn->query($consultaEstado) as $valor) {
-                                        echo "<option value='".$valor["idEstadoCupon"]."'>".$valor["definirEstado"]."</option>";
+                                         if($_SESSION["login"]="Sucursal"){
+                                             if($valor["idEstadoCupon"]!=2 && $valor["idEstadoCupon"]!=1 && $valor["idEstadoCupon"]!=3){
+                                                echo "<option value='".$valor["idEstadoCupon"]." '>".$valor["definirEstado"]."</option>";
+                                             }
+                                        }
+                                        else
+                                        {echo "<option value='".$valor["idEstadoCupon"]."'>".$valor["definirEstado"]."</option>";}
                                     }
                                 ?>
                             </select>
