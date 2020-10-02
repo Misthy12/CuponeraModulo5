@@ -63,7 +63,7 @@
           </li>
           <?php
               if($_SESSION["login"]=="Cliente"){?>
-<li class="nav-item has-treeview">
+          <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tag"></i>
               <p>
@@ -73,13 +73,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../../Vistas/Ofertas/listado_ofertas.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Cupones</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../../Vistas/Ofertas/agregar_oferta.php" class="nav-link">
+                <a href="../../Vistas/Clientes/misCupones.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Mis compras</p>
                 </a>

@@ -82,7 +82,15 @@
                     
                     <input type="hidden" name="id" id="id" class="form-control" value="<?php echo $row->idCliente?>" require/>
                     <input type="Submit" value="Guardar" name="submit" class="btn btn-success">
-                    <a href="listado_clientes.php" class="btn btn-info">Regresar</a>
+                    
+                    <?php
+                        if($_SESSION["login"] ="Cliente"){
+                            echo "<a href='../Index/IndexClientes.php' class='btn btn-warning'>Regresar</a>";
+                        }
+                        else{
+                            echo "<a href='listado_clientes.php' class='btn btn-warning'>Regresar</a>";
+                        }
+                    ?>
                     <br>
                 </form>
             </div>
