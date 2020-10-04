@@ -88,15 +88,19 @@
                                 else{
                                 foreach($rowS as $rowS){}
                                 echo "<div class='card col-sm-12 col-md-3'>";
-                                echo "<div class='card-header bg-danger'> <h4 class='text-center'>OFERTA VENCIDA</h4></div>";
-                                echo "<div class='card-body'>";
-                                echo "<h6 class='h5 text-center font-weight-bold'>".$row["sucursal"]."</h6>";
-                                echo "<p class='text-lg-justify'> <b>OFERTA! </b>".$row["descripcion"]."</p> <hr>";
-                                echo "<p class='text-lg-center'> <b>Precio Oferta: </b>$".$row["precioOferta"]."</p> <hr>";
-                                echo "<p class='text-lg-center'> <b>Precio Regular: </b><s class='text-danger'>$".$row["precioRegular"]."</s></p>";
-                                echo "</div>";
-                                echo "<div class='card-footer text-center font-weight-bold'> Ultima Fecha de Canje: ".$row["fechaLimite"];
-                                echo "</div></div>";
+                                echo "<div class='card-header bg-danger'> <h4 class='text-center'>OFERTA VENCIDA</h4>";
+                                echo "<h6 class='text-center'><b>Codigo de compra: </b>".$row["codigoCompra"]."</h6>
+                                </div>";
+                                    echo "<div class='card-body '>";
+                                    echo "<h6 class='h5 text-center font-weight-bold'>".$rowS->nombreSucursal."</h6>";
+                                    echo "<h6 class='h6 text-center font-weight-bold'> <b>Comprador: </b>".$row["nombresCliente"]." ".$row["apellidosClientes"] ."</h6>";
+                                    echo "<p class='text-lg-justify'> <b>OFERTA! </b>".$row["descripcion"]."</p> <hr>";
+                                    echo "<p class='text-lg-center'> <b>Precio Oferta: </b>$".$row["precioOferta"]."</p> <hr>";
+                                    echo "<p class='text-lg-center'> <b>Precio Oferta: </b>$".$row["precioOferta"]."</p> <hr>";
+                                    echo "<p class='text-lg-center'> <b>Precio Regular: </b><s class='text-danger'>$".$row["precioRegular"]."</s></p>";
+                                    echo "</div>";
+                                    echo "<div class='card-footer text-center font-weight-bold'> Ultima Fecha de Canje: ".$row["fechaLimite"];
+                                    echo "</div></div>";
 
                                 }
                             }
