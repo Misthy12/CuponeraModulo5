@@ -42,7 +42,7 @@
                                     echo "</div>";
                                     // }
                                 }
-                            echo "</div>";
+                            echo "</div></div>";
                             CloseCon($conn);
                     ?>
                 </div>
