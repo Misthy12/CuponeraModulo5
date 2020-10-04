@@ -64,13 +64,21 @@ include("../../Share/header.php");
                     //VALIDACION DE ELIMINACION
                     if (isset($_GET['result'])){
                         if($_GET['result'] == 1){
-                            echo "<div class='alert alert-success' role='alert'> ";
-                            echo "Se ha eliminado el Usuario!! :)";
-                            echo "</div>";
+                            Print"<script>
+                            Swal.fire({
+                              icon: 'success',
+                              title: 'Hecho!',
+                              text: 'Se Ha Eliminado el registro!',
+                            })
+                            </script>";
                         }else{
-                            echo "<div class='alert alert-danger' role='alert'> ";
-                            echo "No se ha eliminado el Usuario! :'(";
-                            echo "</div>";
+                            Print"<script>
+                            Swal.fire({
+                              icon: 'error',
+                              title: 'OPPS!',
+                              text: 'No se ha podido eliminar!',
+                            })
+                            </script>";
                         }
                     }
                 ?>
