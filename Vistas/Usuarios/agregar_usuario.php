@@ -68,7 +68,7 @@ include "../../Share/header.php";
 
                         if($_POST["nombreUsuario"]!="" && $_POST["correo"]!="" && $_POST["clave"]!=""){
                             $clave=password_hash($_POST["clave"], PASSWORD_DEFAULT);//clave encriptada
-                            $sql = "INSERT INTO tblusuarios(nombresUsuario, email,password,estado)
+                            $sql = "INSERT INTO tblusuarios(nombreUsuario, email,password,estado)
                                     VALUES ('".$_POST["nombreUsuario"]."','".$_POST["correo"]."','".$clave."','".$_POST["estado"]."')";
 
                             $count = $conn->exec($sql);
