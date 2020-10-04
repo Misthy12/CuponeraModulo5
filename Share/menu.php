@@ -123,7 +123,29 @@
               </li>
             </ul>
           </li>
-              <?php } 
+              <?php }
+              if($_SESSION["login"]=="Sucursal"){?>
+              <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                          <i class="nav-icon fas fa-users"></i>
+                          <p>
+                          <?php echo $_SESSION["nombre"]; ?>
+                            <i class="fas fa-angle-left right"></i>
+                          </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="../../Vistas/Sucursales/editar_sucursal.php?codigo=<?php echo$_SESSION['id']?>" class="nav-link">
+                              <i class="far fa-circle nav-icon"></i>
+                              <p>Mis Datos</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li> 
+              <?php
+
+              }
+                        
               if($_SESSION["login"]=="Admin"){?>    
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">

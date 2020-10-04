@@ -43,12 +43,12 @@ require '../../Share/PhpMailer/src/SMTP.php';
                         <br>
                     </div>
                     <div class="row col-12 form-group">
-                        <div class="col-md-6 col-sm-12">
+                        <div class="col-md-12 col-sm-12">
                             <label for="correo">Correo</label>
                             <input type="email" name="correo" id="correo" class="form-control" placeholder="alguien.mas@gmail.com" require/>
                             <br>
                         </div>
-                        <div class="col-md-6 col-sm-12">
+                        <div class="col-md-6 col-sm-12" hidden> 
                             <label for="clave">Contraseña</label>
                             <input type="text" name="clave" id="clave" readonly class="form-control" value="<?php echo generarCodigoS(6); ?>" require/>
                             <br>
@@ -83,7 +83,7 @@ require '../../Share/PhpMailer/src/SMTP.php';
 
                             $mail=new PHPMailer();
                             $mail->CharSet = 'UTF-8';
-                            $body = "".$_POST["nombre"]." Gracias por registarse su Contraseña de Ingreso es:".$_POST["clave"]." Por favor Cambiarla";
+                            $body = "".$_POST["encargado"]." Gracias por registarse su Contraseña de Ingreso es:".$_POST["clave"]." Por favor Cambiarla";
                             $mail->IsSMTP();
                             $mail->Host       = 'smtp.gmail.com';
                             $mail->SMTPSecure = 'tls';
