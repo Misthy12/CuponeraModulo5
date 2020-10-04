@@ -65,7 +65,7 @@ session_start();
             <div class="col-8">
               <div class="icheck-primary">
                 <label for="remember">
-                  <a href="Registro.php">Registrarme</a>
+                  <a href="Registro.php">Registrarme.</a>
                 </label>
               </div>
             </div>
