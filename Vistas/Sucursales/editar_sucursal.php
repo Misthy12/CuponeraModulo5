@@ -32,8 +32,8 @@
 <!-- CUERPO DE LA PAGINA -->
     <div class="col-md-8 offset-md-2 col-sm-12">
         <div class="card">
-            <div class="card-header bg-success">
-                <h4 class="text-center font-weight-bold">Agregar Sucursal</h4>
+            <div class="card-header bg-warning">
+                <h4 class="text-center font-weight-bold">Editar Sucursal</h4>
             </div>
             <div class="card-body">
                 <form action="" method="POST">
@@ -71,7 +71,7 @@
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <label for="clave">Contraseña</label>
-                            <input type="password" name="clave" id="clave" class="form-control"  required/>
+                            <input type="password" name="clave" id="clave" class="form-control" value="<?php echo $row->clave?>" required/>
                             <br>
                         </div>
                     </div>
