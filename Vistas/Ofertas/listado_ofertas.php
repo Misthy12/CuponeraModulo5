@@ -84,7 +84,7 @@ include "../../Share/header.php";
                                     echo "<td>";
                                         echo "<a class='btn btn-sm btn-warning' href=\"./editar_oferta.php?codigo=". $row["id"]."\" ><i class='fas fa-edit'></i></a> \n";
                                         echo "<a class='btn btn-sm btn-info' href=\"./info_oferta.php?codigo=". $row["id"]."\" ><i class='fas fa-info'></i></a> \n";
-                                        echo "<a class=\"btn btn-sm btn-danger\" href=\"./eliminar_ofeta.php?codigo=". $row["id"]."\"><i class=\"far fa-trash-alt\"></i></a>";
+                                        echo "<a class=\"btn btn-sm btn-danger\" href=\"./eliminar_oferta.php?codigo=". $row["id"]."\"><i class=\"far fa-trash-alt\"></i></a>";
                                     echo "</td>";
                                 echo "</tr>";
                                 //}
@@ -101,13 +101,21 @@ include "../../Share/header.php";
                     //VALIDACION DE ELIMINACION
                     if (isset($_GET['result'])){
                         if($_GET['result'] == 1){
-                            echo "<div class='alert alert-success' role='alert'> ";
-                            echo "Se ha eliminado el Registro!! :)";
-                            echo "</div>";
+                            Print"<script>
+                            Swal.fire({
+                              icon: 'success',
+                              title: 'Hecho!',
+                              text: 'Se Ha Eliminado el registro!',
+                            })
+                            </script>";
                         }else{
-                            echo "<div class='alert alert-danger' role='alert'> ";
-                            echo "No se ha eliminado el Registro! :'(";
-                            echo "</div>";
+                            Print"<script>
+                            Swal.fire({
+                              icon: 'error',
+                              title: 'OPPS!',
+                              text: 'No se ha podido eliminar!',
+                            })
+                            </script>";
                         }
                     }
                 ?>

@@ -32,7 +32,8 @@
 
     <!-- Bootstrap 4 -->
 
-
+    <!-- Alert -->
+    <script src="../../Tools/lib/sweetAlert2/sweetalert2.all.min.js"></script>
     <!-- AdminLTE App -->
     <script src="../../Tools/dist/js/adminlte.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->

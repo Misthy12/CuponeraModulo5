@@ -113,16 +113,21 @@ include '../../Share/conexion.php';
                         $count = $conn->exec($sql);
 
                         if($count > 0){
-                            echo "<div class=\"alert alert-success \" role=\"alert\" >";
-                            echo "Se ha guardado el Registro!! :)";
-                            echo "</div>";
+                            Print"<script>
+                            Swal.fire({
+                              icon: 'success',
+                              title: 'Hecho!',
+                              text: 'Se Ha registrado Con Exito!',
+                            })
+                            </script>";
                         }else{
-                            echo "<div class=\"alert alert-danger \" role=\"alert\" >";
-                            echo "No se ha guardado el Registro!! :'( \n";
-                            echo "</br>";
-                            echo "Error: ". $sql;
-                            print_r($conn->errorInfo());
-                            echo "</div>";
+                            Print"<script>
+                            Swal.fire({
+                              icon: 'error',
+                              title: 'OPPS!',
+                              text: 'No se Ha realizado el Registro!',
+                            })
+                            </script>";
                         }
                     }
                     else{

@@ -72,18 +72,22 @@ include "../../Share/header.php";
                                     VALUES ('".$_POST["nombreUsuario"]."','".$_POST["correo"]."','".$clave."','".$_POST["estado"]."')";
 
                             $count = $conn->exec($sql);
-
                             if($count > 0){
-                                echo "<div class=\"alert alert-success \" role=\"alert\" >";
-                                echo "Se ha guardado el Registro!! :)";
-                                echo "</div>";
+                                Print"<script>
+                                Swal.fire({
+                                  icon: 'success',
+                                  title: 'Hecho!',
+                                  text: 'Se Ha registrado el Usuario!',
+                                })
+                                </script>";
                             }else{
-                                echo "<div class=\"alert alert-danger \" role=\"alert\" >";
-                                echo "No se ha guardado el Usuario!! :'( \n";
-                                echo "</br>";
-                                echo "Error: ". $sql;
-                                print_r($conn->errorInfo());
-                                echo "</div>";
+                                Print"<script>
+                                Swal.fire({
+                                  icon: 'error',
+                                  title: 'OPPS!',
+                                  text: 'No se Ha realizado el Registro!',
+                                })
+                                </script>";
                             }
                             CloseCon($conn);
                         }

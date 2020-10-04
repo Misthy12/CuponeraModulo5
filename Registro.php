@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Titulo Proyecto -->
     <title>Cuponera</title>
-        
+          <!-- Theme Alert -->
+  
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- Font Awesome -->
@@ -18,8 +19,11 @@
     <link rel="stylesheet" href="../../Tools/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="Tools/lib/sweetAlert2/asweetalert2.min.css">
 </head>
 <body>
+
 <title>Clientes</title>
     <div class="col-md-8 offset-md-2 col-sm-12">
         <div class="card">
@@ -88,46 +92,7 @@
                     <br>
                 </form>
             </div>
-                <!-- ENVIO DE DATOS -->
-                <?php
-                    if(isset($_POST["submit"])){
-                        include 'Share/conexion.php';
-                        $conn=OpenCon();
 
-                        //verificar la conexion
-                        if ($conn == null){
-                            die("No se ha podido conectar con la base de datos :(");
-                        }
-
-                        if($_POST["nombreCliente"]!="" && $_POST["apellidoCliente"] != "" && $_POST["telefono"]!="" && $_POST["correo"]!="" && $_POST["direccion"]!="" && $_POST["dui"]!="" &&$_POST["clave"]!=""){
-                            $clave=password_hash($_POST["clave"], PASSWORD_DEFAULT);//clave encriptada
-                            $sql = "INSERT INTO tblClientes(nombresCliente, apellidosClientes, telefono, correoCliente, direccionCliente,dui,password,estado)
-                                    VALUES ('".$_POST["nombreCliente"]."','".$_POST["apellidoCliente"]."','".$_POST["telefono"]."','".$_POST["correo"]."',
-                                    '".$_POST["direccion"]."','".$_POST["dui"]."','".$clave."','".$_POST["estado"]."')";
-
-                            $count = $conn->exec($sql);
-
-                            if($count > 0){
-                                echo "<div class=\"alert alert-success \" role=\"alert\" >";
-                                echo "Se ha guardado el Registro!! :)";
-                                echo "</div>";
-                            }else{
-                                echo "<div class=\"alert alert-danger \" role=\"alert\" >";
-                                echo "No se ha guardado el cliente!! :'( \n";
-                                echo "</br>";
-                                echo "Error: ". $sql;
-                                print_r($conn->errorInfo());
-                                echo "</div>";
-                            }
-                            CloseCon($conn);
-                        }
-                        else{
-                            echo "<div class=\"alert alert-danger \" role=\"alert\" >";
-                                echo "Aun faltan campos por llenar!! :<";
-                                echo "</div>";
-                        }
-                    }
-                    ?>
             </div>
         </div>
     </div>
@@ -163,8 +128,8 @@
          $.widget.bridge('uibutton', $.ui.button);
     </script> -->
     <!-- Bootstrap 4 -->
-    
-
+    <!-- Alert -->
+    <script src="Tools/lib/sweetAlert2/sweetalert2.all.min.js"></script>
     <!-- AdminLTE App -->
     <script src="../../Tools/dist/js/adminlte.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
@@ -172,4 +137,49 @@
     <!-- AdminLTE for demo purposes -->
     <script src="../../Tools/dist/js/demo.js"></script>
 </body>
+                <!-- ENVIO DE DATOS -->
+                <?php
+                    if(isset($_POST["submit"])){
+                        include 'Share/conexion.php';
+                        $conn=OpenCon();
+
+                        //verificar la conexion
+                        if ($conn == null){
+                            die("No se ha podido conectar con la base de datos :(");
+                        }
+
+                        if($_POST["nombreCliente"]!="" && $_POST["apellidoCliente"] != "" && $_POST["telefono"]!="" && $_POST["correo"]!="" && $_POST["direccion"]!="" && $_POST["dui"]!="" &&$_POST["clave"]!=""){
+                            $clave=password_hash($_POST["clave"], PASSWORD_DEFAULT);//clave encriptada
+                            $sql = "INSERT INTO tblClientes(nombresCliente, apellidosClientes, telefono, correoCliente, direccionCliente,dui,password,estado)
+                                    VALUES ('".$_POST["nombreCliente"]."','".$_POST["apellidoCliente"]."','".$_POST["telefono"]."','".$_POST["correo"]."',
+                                    '".$_POST["direccion"]."','".$_POST["dui"]."','".$clave."','".$_POST["estado"]."')";
+
+                            $count = $conn->exec($sql);
+
+                            if($count > 0){
+                                Print"<script>
+                                Swal.fire({
+                                  icon: 'success',
+                                  title: 'Hecho!',
+                                  text: 'Se Ha registrado el Cliente!',
+                                })
+                                </script>";
+                            }else{
+                                Print"<script>
+                                Swal.fire({
+                                  icon: 'error',
+                                  title: 'OPPS!',
+                                  text: 'No se Ha realizado el Registro!',
+                                })
+                                </script>";
+                            }
+                            CloseCon($conn);
+                        }
+                        else{
+                            echo "<div class=\"alert alert-danger \" role=\"alert\" >";
+                                echo "Aun faltan campos por llenar!! :<";
+                                echo "</div>";
+                        }
+                    }
+                    ?>
 </html>
