@@ -13,9 +13,9 @@
             <!-- CONSULTA PARA EXTARER DATOS -->
             <?php
                 $conn =OpenCon();
-                $sql="SELECT o.idCupon as id,o.tituloOferta as titulo, s.nombreSucursal as sucursal, o.precioRegular, o.precioOferta, e.definirEstado as estado, o.descripcion, o.fechaInicio, o.fechaFin, o.fechaLimite  FROM tblCupones o
+                $sql="SELECT o.idCupon as id,o.tituloOferta as titulo, s.nombreSucursal as sucursal, o.precioRegular, o.precioOferta, e.definirEstado as estado, o.descripcion, o.fechaInicio, o.fechaFin,o.cantidad, o.fechaLimite  FROM tblCupones o
                 INNER JOIN tblSucursales s ON o.idSucursal = s.idSucursal
-                INNER JOIN tblEstadosCupon e ON o.estado=e.idEstadoCupon WHERE o.estado=2";
+                INNER JOIN tblEstadosCupon e ON o.estado=e.idEstadoCupon WHERE o.estado=2 AND o.cantidad>0";
 
 
                 foreach($conn->query($sql) as $row){
@@ -53,6 +53,7 @@
                     <Form action="" method="POST">
                     <input type="text" name="idCliente" id="idCliente" hidden value="<?php echo $_SESSION["id"]?>">
                     <input type="text" name="idCupon" id="idCupon"  hidden value="<?php echo$row["id"]?>">
+                    <input type="text" name="Cantidad" id="Cantidad"  hidden value="<?php echo$row["cantidad"]?>">
                     <input type="text" class="label" readonly name="CodigoCompra" id="codigoCompra" value="<?php echo "SUC".$row["id"]."-".generarCodigoS(7).""; ?>">
 
                     Total $<?php echo $row["precioOferta"] ?>
@@ -80,12 +81,14 @@
                         }
 
                         if($_POST["idCliente"]!="" && $_POST["idCupon"] != "" && $_POST["CodigoCompra"]!=""){
-                            $sql = "INSERT INTO tblcompracupon(idCliente, idCupon, codigoCompra)
-                                    VALUES ('".$_POST["idCliente"]."','".$_POST["idCupon"]."','".$_POST["CodigoCompra"]."')";
+                            $sql = "INSERT INTO tblcompracupon(idCliente, idCupon, codigoCompra,estado)
+                                    VALUES ('".$_POST["idCliente"]."','".$_POST["idCupon"]."','".$_POST["CodigoCompra"]."',0)";
+                              $cantidad = ($_POST["Cantidad"]-1);
+                              $sql2 = "UPDATE tblCupones SET  cantidad='".$cantidad."' WHERE idCupon='".$_POST["idCupon"]."'";      
+                              $count = $conn->exec($sql);
+                            $count2 = $conn->exec($sql2);
 
-                            $count = $conn->exec($sql);
-
-                            if($count > 0){
+                            if($count > 0 && $count2){
                                 ?>
                                 <script>
                                 Swal.fire({
@@ -93,6 +96,7 @@
                                     title: 'EXITO!',
                                     text: 'Compra Realizada con Exito!'
                                 });
+                                
                                 </script>
                                 <?php
                             }else{

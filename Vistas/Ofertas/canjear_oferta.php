@@ -40,7 +40,7 @@ include '../../Share/conexion.php';
                         if($_POST["Codigo"]!="" ){
 
                             $id=$_POST["Codigo"];
-                            $sql='SELECT o.idCupon as id,o.tituloOferta as nombre, s.nombreSucursal as sucursal, o.idSucursal, o.precioRegular, o.precioOferta, o.fechaInicio, o.fechaFin, o.fechaLimite, o.cantidad, o.descripcion, ce.definirEstado as estado, o.estado as idEstado, cl.dui FROM tblCupones o 
+                            $sql='SELECT o.idCupon as id,o.tituloOferta as nombre,cm.estado as estadoC, cm.idCompra, s.nombreSucursal as sucursal, o.idSucursal, o.precioRegular, o.precioOferta, o.fechaInicio, o.fechaFin, o.fechaLimite, o.cantidad, o.descripcion, ce.definirEstado as estado, o.estado as idEstado, cl.dui FROM tblCupones o 
                             INNER JOIN tblSucursales s ON o.idSucursal = s.idSucursal 
                             INNER JOIN tblEstadosCupon ce ON o.estado = ce.idEstadoCupon 
                             INNER Join tblcompracupon cm On o.idCupon = cm.idCupon 
@@ -52,7 +52,7 @@ include '../../Share/conexion.php';
                            foreach($row as $row){}
                         if($row != null){
                             Print'<script>
-                            if('.$row->idEstado.'==2){
+                            if('.$row->estadoC.'==0){
                                 Swal.fire({
                                     title: "'.$row->nombre.'",
                                     html:"Sucursal:'.$row->sucursal.'</br> Dui:'.$row->dui.' </br> Estado:'.$row->estado.'</br> Fecha Fin:'.$row->fechaLimite.'",
@@ -62,7 +62,7 @@ include '../../Share/conexion.php';
                                     confirmButtonText: "Cajear!"
                                   }).then((result) => {
                                     if (result.isConfirmed) {
-                                        window.location = "./vender.php?codigo='.$row->id.'";
+                                        window.location = "./vender.php?codigo='.$row->idCompra.'";
                                         Swal.fire({
                                             icon: "success",
                                             title: "Hecho!",
@@ -74,7 +74,7 @@ include '../../Share/conexion.php';
                             else{
                                 Swal.fire({
                                     title: "'.$row->nombre.'",
-                                    html:"Sucursal:'.$row->sucursal.'</br> Dui:'.$row->dui.' </br><b> Estado:'.$row->estado.'</b></br> Fecha Fin:'.$row->fechaLimite.'",
+                                    html:"Sucursal:'.$row->sucursal.'</br> Dui:'.$row->dui.' </br><b> Estado:CANJEADO</b></br> Fecha Fin:'.$row->fechaLimite.'",
                                     text:"Producto Canjeado Anteriormente",
                                     showCancelButton: false
                                   })
