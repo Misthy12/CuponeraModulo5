@@ -161,16 +161,21 @@
                         $codigo=$_POST["id"];        
                         $count = $conn->exec($sql);
                         if($count > 0){
-
-                            echo "<script type='text/javascript'>alert('Se ha modificado la informacion del Registro');</script>";
-                            
+                            Print"<script>
+                            Swal.fire({
+                              icon: 'success',
+                              title: 'Hecho!',
+                              text: 'Se Ha Actualizado el registrado!',
+                            })
+                            </script>";
                         }else{
-                            echo "<div class=\"alert alert-danger\" role=\"alert\" >";
-                            echo "No se ha modificado la informacion!\n";
-                            echo "</br>";
-                            echo "Error: ". $sql;
-                            print_r($conn->errorInfo());
-                            echo "</div>";
+                            Print"<script>
+                            Swal.fire({
+                              icon: 'error',
+                              title: 'OPPS!',
+                              text: 'No se Ha realizado la actualización!',
+                            })
+                            </script>";
                         }
                         CloseCon($conn);
                     }

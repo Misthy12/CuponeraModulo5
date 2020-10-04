@@ -113,7 +113,7 @@ include "../../Share/header.php";
                             Swal.fire({
                               icon: 'error',
                               title: 'OPPS!',
-                              text: 'No se ha podido eliminar!',
+                              text: 'No se ha podido eliminar, Clientes han adquierido este Cupon!',
                             })
                             </script>";
                         }

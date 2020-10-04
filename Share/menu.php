@@ -121,6 +121,13 @@
                   <p>Agregar Oferta</p>
                 </a>
               </li>
+
+              <li class="nav-item">
+                <a href="../../Vistas/Ofertas/canjear_oferta.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Canjear Oferta</p>
+                </a>
+              </li>
             </ul>
           </li>
               <?php }
@@ -141,7 +148,7 @@
                             </a>
                           </li>
                         </ul>
-                      </li> 
+                      </li>
               <?php
 
               }
