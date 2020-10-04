@@ -52,23 +52,33 @@ include '../../Share/conexion.php';
                            foreach($row as $row){}
                         if($row != null){
                             Print'<script>
-                            Swal.fire({
-                                title: "'.$row->nombre.'",
-                                html:"Sucursal:'.$row->sucursal.'</br> Dui:'.$row->dui.' </br> Estado:'.$row->estado.'</br> Fecha Fin:'.$row->fechaLimite.'",
-                                showCancelButton: true,
-                                confirmButtonColor: "#3085d6",
-                                cancelButtonColor: "#d33",
-                                confirmButtonText: "Cajear!"
-                              }).then((result) => {
-                                if (result.isConfirmed) {
-                                    window.location = "./vender.php?codigo='.$row->id.'";
-                                    Swal.fire({
-                                        icon: "success",
-                                        title: "Hecho!",
-                                        text: "Canjeado Exitosamente!"
-                                      })
-                                }
-                              })
+                            if('.$row->idEstado.'==2){
+                                Swal.fire({
+                                    title: "'.$row->nombre.'",
+                                    html:"Sucursal:'.$row->sucursal.'</br> Dui:'.$row->dui.' </br> Estado:'.$row->estado.'</br> Fecha Fin:'.$row->fechaLimite.'",
+                                    showCancelButton: true,
+                                    confirmButtonColor: "#3085d6",
+                                    cancelButtonColor: "#d33",
+                                    confirmButtonText: "Cajear!"
+                                  }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        window.location = "./vender.php?codigo='.$row->id.'";
+                                        Swal.fire({
+                                            icon: "success",
+                                            title: "Hecho!",
+                                            text: "Canjeado Exitosamente!"
+                                          })
+                                    }
+                                  })
+                            }
+                            else{
+                                Swal.fire({
+                                    title: "'.$row->nombre.'",
+                                    html:"Sucursal:'.$row->sucursal.'</br> Dui:'.$row->dui.' </br><b> Estado:'.$row->estado.'</b></br> Fecha Fin:'.$row->fechaLimite.'",
+                                    text:"Producto Canjeado Anteriormente",
+                                    showCancelButton: false
+                                  })
+                            }
                             </script>';
                         }else{
                             Print"<script>
