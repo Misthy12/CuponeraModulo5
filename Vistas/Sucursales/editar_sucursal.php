@@ -40,13 +40,13 @@
                     <div class="row col-12 form-group">
                         <div class="col-md-7 col-sm-12">
                             <label for="nombre">Nombre</label>
-                            <input type="text" name="nombre" id="nombre" class="form-control" value="<?php echo $row->nombreSucursal ?>" require/>
+                            <input type="text" name="nombre" id="nombre" class="form-control" value="<?php echo $row->nombreSucursal ?>" required/>
                             <br>
                         </div>
                     
                         <div class="col-md-5 col-sm-12">
                             <label for="empresa">Empresa</label>
-                            <select type="text" name="empresa" id="empresa" class="form-control"  require>
+                            <select type="text" name="empresa" id="empresa" class="form-control"  required>
                             <option value="<?php echo $row->idEmpresa ?>"><?php echo $row->empresa?></option>
                             
                                 <?php
@@ -60,18 +60,18 @@
                     </div>
                     <div class="col-12">
                         <label for="encargado">Encargado</label>
-                        <input type="text" name="encargado" id="encargado" class="form-control" value="<?php echo $row->encargado ?>" require/>
+                        <input type="text" name="encargado" id="encargado" class="form-control" value="<?php echo $row->encargado ?>" required/>
                         <br>
                     </div>
                     <div class="row col-12 form-group">
                         <div class="col-md-6 col-sm-12">
                             <label for="correo">Correo</label>
-                            <input type="email" name="correo" id="correo" class="form-control" placeholder="alguien.mas@gmail.com" value="<?php echo $row->correo ?>" require/>
+                            <input type="email" name="correo" id="correo" readonly class="form-control" placeholder="alguien.mas@gmail.com" value="<?php echo $row->correo ?>" required/>
                             <br>
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <label for="clave">Contraseña</label>
-                            <input type="password" name="clave" id="clave" class="form-control" value="<?php echo $row->password ?>" require/>
+                            <input type="password" name="clave" id="clave" class="form-control" value=" " required/>
                             <br>
                         </div>
                     </div>
@@ -100,9 +100,10 @@
                         }
 
                         if($_POST["nombre"]!="" && $_POST["empresa"] != "" && $_POST["encargado"]!="" && $_POST["correo"]!="" && $_POST["clave"]!=""){
-                            
+                            $clave=password_hash($_POST["clave"], PASSWORD_DEFAULT);//clave encriptada
+
                             $sql = "UPDATE tblSucursales SET nombreSucursal='".$_POST["nombre"]."', idEmpresa='".$_POST["empresa"]."', nombreEncargadoSuc='".$_POST["encargado"]."',
-                                password='".$_POST["clave"]."', correo='".$_POST["correo"]."' WHERE idSucursal='".$_POST["id"]."'";
+                                password='".$clave."', correo='".$_POST["correo"]."' WHERE idSucursal='".$_POST["id"]."'";
                             $codigo=$_POST["id"];        
                             $count = $conn->exec($sql);
                             if($count > 0){
