@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-10-2020 a las 15:54:52
+-- Tiempo de generación: 04-10-2020 a las 17:35:12
 -- Versión del servidor: 10.4.13-MariaDB
 -- Versión de PHP: 7.4.7
 
@@ -56,16 +56,16 @@ CREATE TABLE `tblcompracupon` (
   `idCompra` int(11) NOT NULL,
   `idCliente` int(11) NOT NULL,
   `idCupon` int(11) NOT NULL,
-  `codigoCompra` varchar(13) NOT NULL
+  `codigoCompra` varchar(13) NOT NULL,
+  `estado` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `tblcompracupon`
 --
 
-INSERT INTO `tblcompracupon` (`idCompra`, `idCliente`, `idCupon`, `codigoCompra`) VALUES
-(14, 3, 7, 'SUC7-17u4vik'),
-(15, 3, 8, 'SUC8-qh6rguk');
+INSERT INTO `tblcompracupon` (`idCompra`, `idCliente`, `idCupon`, `codigoCompra`, `estado`) VALUES
+(14, 3, 7, 'SUC7-17u4vik', 1);
 
 -- --------------------------------------------------------
 
@@ -94,8 +94,8 @@ CREATE TABLE `tblcupones` (
 --
 
 INSERT INTO `tblcupones` (`idCupon`, `tituloOferta`, `IdSucursal`, `precioRegular`, `precioOferta`, `fechaInicio`, `fechaFin`, `fechaLimite`, `cantidad`, `descripcion`, `estado`, `justificacion`, `otros`) VALUES
-(7, 'Gorras', 2, '5.00', '2.50', '2020-10-01', '2020-10-14', '2020-10-16', 2, 'Super Promo de Gorras ', 5, NULL, NULL),
-(8, 'Zapatos', 2, '30.00', '25.00', '2020-10-04', '2020-10-12', '2020-10-14', 5, ' Super Promo Zapato ', 6, NULL, NULL);
+(7, 'Gorras', 2, '5.00', '2.50', '2020-10-01', '2020-10-14', '2020-10-16', 2, 'Super Promo de Gorras ', 2, NULL, NULL),
+(8, 'Zapatos', 2, '30.00', '25.00', '2020-10-04', '2020-10-12', '2020-10-14', 3, ' Super Promo Zapato ', 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -281,7 +281,7 @@ ALTER TABLE `tblclientes`
 -- AUTO_INCREMENT de la tabla `tblcompracupon`
 --
 ALTER TABLE `tblcompracupon`
-  MODIFY `idCompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `idCompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `tblcupones`
