@@ -1,6 +1,7 @@
 <?php
     include "../../Share/header.php";
     include "../../Share/conexion.php";
+    include '../../Share/funcionesGenerativas.php';
 ?>
 
 <!-- Main content -->
@@ -50,7 +51,7 @@
                     <Form action="" method="POST">
                     <input type="text" name="idCliente" id="idCliente" hidden value="<?php echo $_SESSION["id"]?>">
                     <input type="text" name="idCupon" id="idCupon"  hidden value="<?php echo$row["id"]?>">
-                    <input type="text" class="card" name="CodigoCompra" id="codigoCompra" value="EM10CUPO1575">
+                    <input type="text" class="label" readonly name="CodigoCompra" id="codigoCompra" value="<?php echo "SUC".$row["id"]."-".generarCodigoS(7).""; ?>">
 
                     Total $<?php echo $row["precioOferta"] ?>
                     </div>

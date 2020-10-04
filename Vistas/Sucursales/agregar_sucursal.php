@@ -21,13 +21,13 @@ require '../../Share/PhpMailer/src/SMTP.php';
                     <div class="row col-12 form-group">
                         <div class="col-md-7 col-sm-12">
                             <label for="nombre">Nombre</label>
-                            <input type="text" name="nombre" id="nombre" class="form-control" require/>
+                            <input type="text" name="nombre" id="nombre" class="form-control" required/>
                             <br>
                         </div>
                     
                         <div class="col-md-5 col-sm-12">
                             <label for="empresa">Empresa</label>
-                            <select type="text" name="empresa" id="empresa" class="form-control" require>
+                            <select type="text" name="empresa" id="empresa" class="form-control" required>
                             <?php
                                     foreach ($conn->query($consultaEmpresa) as $valor) {
                                         echo "<option value='".$valor["idEmpresa"]."'>".$valor["nombreEmpresa"]."</option>";
@@ -39,24 +39,20 @@ require '../../Share/PhpMailer/src/SMTP.php';
                     </div>
                     <div class="col-12">
                         <label for="encargado">Encargado</label>
-                        <input type="text" name="encargado" id="encargado" class="form-control" require/>
+                        <input type="text" name="encargado" id="encargado" class="form-control" required/>
                         <br>
                     </div>
                     <div class="row col-12 form-group">
                         <div class="col-md-12 col-sm-12">
                             <label for="correo">Correo</label>
-                            <input type="email" name="correo" id="correo" class="form-control" placeholder="alguien.mas@gmail.com" require/>
+                            <input type="email" name="correo" id="correo" class="form-control" placeholder="alguien.mas@gmail.com" required/>
                             <br>
                         </div>
-<<<<<<< HEAD
                         <!-- <div class="col-md-6 col-sm-12">
-=======
-                        <div class="col-md-6 col-sm-12" hidden> 
->>>>>>> a4c2eb417b4c0c2d5081bfe160c98bf493701146
                             <label for="clave">Contraseña</label>
                             <br>
                         </div> -->
-                            <input type="hidden" name="clave" id="clave" readonly class="form-control" value="<?php echo generarCodigoS(6); ?>" require/>
+                            <input type="hidden" name="clave" id="clave" readonly class="form-control" value="<?php echo generarCodigoS(6); ?>" required/>
                     </div>
                     
                     <!-- <label for="direccion">Direccion</label>
