@@ -25,10 +25,11 @@
 <body>
 
 <title>Clientes</title>
-    <div class="col-md-8 offset-md-2 col-sm-12">
+<br>
+    <div class="col-md-6 offset-md-3 col-sm-12">
         <div class="card">
-            <div class="card-header bg-success">
-                <h4 class="text-center">Agregar Cliente</h4>
+            <div class="card-header bg-primary">
+                <h4 class="text-center text-uppercase">Registro</h4>
             </div>
             <div class="card-body">
                 <form action="" method="POST" id="form">
@@ -96,7 +97,9 @@
             </div>
         </div>
     </div>
-    <footer class="main-footer">
+    <br>
+    <hr>
+    <footer class="main-footer text-center">
          <details>
             <summary><strong>Copyright &copy; 2020 <a href="http://adminlte.io">Alondra Nestor Keyssi Fidel</a>.</strong></summary>
                 <!-- <p><a href="mailto:nancycolatoam@gmail.com">nancycolatoam@gmail.com</a></p> -->
