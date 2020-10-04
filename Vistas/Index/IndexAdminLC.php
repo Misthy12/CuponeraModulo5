@@ -6,8 +6,8 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-<!-- Small boxes (Stat box) -->
-<div class="row">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-info">
@@ -27,7 +27,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3><?php echo (numeroEmpresas()/100); ?><sup style="font-size: 20px">%</sup></h3>
+                <h3><?php if(numeroEmpresas()!=0){echo (numeroEmpresas()/100);} else{ echo 0;} ?><sup style="font-size: 20px">%</sup></h3>
 
                 <p>Empresas</p>
               </div>
@@ -40,7 +40,7 @@
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-warning">
+            <div class="small-box bg-primary">
               <div class="inner">
                 <h3> <?php echo numeroSucursales(); ?> </h3>
 
@@ -68,9 +68,11 @@
             </div>
           </div>
           <!-- ./col -->
-        <!-- /.row (main row) -->
+           <!-- /.row (main row) -->
           <!-- Panel de ofertas  -->
-          <div class="col-12">
+          </div>
+
+          <div class="row">
             <!-- CONSULTA PARA EXTARER DATOS -->
             <?php
                 $conn =OpenCon();
@@ -79,10 +81,13 @@
                 INNER JOIN tblEstadosCupon e ON o.estado=e.idEstadoCupon WHERE o.estado=1";
 
 
-                      //Imprecion de formulario
-                      echo "<div class='card' style='heigth: 25rem; ' >";
-                      echo "<div class='card-header bg-info text-center'> <h2>OFERTAS EN ESPERA DE APROBACION</h2></div>";
+                      //Imprecion de formulario;
+                      echo "<div class='col-12'><div class='card' >";
+                      echo "<div class='card-header bg-warning text-center'> <h2>OFERTAS EN ESPERA DE APROBACION</h2></div>";
+                      echo "<div class='row'>";
+                      
                       foreach($conn->query($sql) as $row){
+
                         // echo "<div class='card-body'>".$row["fechaInicio"].$row["fechaFin"]."</div>";
                         echo "<div class='col-3'><div class='card-body'>";
                         echo "<h4 class='h4 font-weight-bold text-center'>".$row["titulo"]."</h4><hr>";
@@ -92,10 +97,13 @@
                         echo "<a class='btn btn-sm btn-outline-info text-center btn-block fa-hand-eye' href=\"../Ofertas/editar_oferta.php?codigo=". $row["id"]."\" ><i class='fas fa-edit'></i></a> \n";
                         echo "</div></div>";
                     // }
-                }
+                        }
+                        echo "</div></div></div>";
+
                 CloseCon($conn);
             ?>
-        </div><!--FIN DEL ROW-->
+          </div><!--FIN DEL ROW-->
+      </div><!--FIN DEL ROW-->
 
         <?php      
          include "../../Share/footer.php";
