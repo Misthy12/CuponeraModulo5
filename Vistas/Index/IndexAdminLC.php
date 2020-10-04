@@ -19,7 +19,7 @@
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="#" class="small-box-footer">Más informacion <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="../../Vistas/Ofertas/listado_ofertas.php" class="small-box-footer">Más informacion <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -34,7 +34,7 @@
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="./Vistas/Empresas/listado_empresas.php" class="small-box-footer">Mas informacion <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="../../Vistas/Empresas/listado_empresas.php" class="small-box-footer">Mas informacion <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -49,7 +49,7 @@
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="./Vistas/Sucursales/listado_sucursales.php" class="small-box-footer">Mas informacion <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="../../Vistas/Sucursales/listado_sucursales.php" class="small-box-footer">Mas informacion <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -64,7 +64,7 @@
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
               </div>
-              <a href="./Vistas/Clientes/listado_clientes.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="../../Vistas/Clientes/listado_clientes.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
