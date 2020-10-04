@@ -89,12 +89,15 @@ include '../../Share/conexion.php';
                             die("No se ha podido conectar con la base de datos :(");
                         }
                         if($_POST["rubro"]!="" && $_POST["nombre"]!="" && $_POST["comision"]!=""  && $_POST["direccion"]!=""  && $_POST["telefono"]!="" && $_POST["correo"]!="" ){
+                            $clave=password_hash($_POST["clave"], PASSWORD_DEFAULT);//clave encriptada
 
+                            //consulta
                             $sql = "INSERT INTO tblEmpresas(nombreEmpresa, codigoEmpresa, telefono, correo, clave, direccion,idRubro,porcentajeComision)
                                     VALUES ('".$_POST["nombre"]."','".$_POST["codigo"]."','".$_POST["telefono"]."', '".$_POST["correo"]."',
                                     '".$_POST["clave"]."','".$_POST["direccion"]."','".$_POST["rubro"]."','".$_POST["comision"]."')";
             
                             $count = $conn->exec($sql);
+
                             
                         if($count > 0){
                             echo "<div class=\"alert alert-success \" role=\"alert\" >";
@@ -116,6 +119,26 @@ include '../../Share/conexion.php';
                         }
 
                         CloseCon($conn);
+                        //envio a correo
+                        $mail=new PHPMailer();
+                        $mail->CharSet = 'UTF-8';
+                        $body = "".$_POST["nombre"]." Gracias por registarse su Contraseña de Ingreso es:".$_POST["clave"]." Por favor Cambiarla";
+                        $mail->IsSMTP();
+                        $mail->Host       = 'smtp.gmail.com';
+                        $mail->SMTPSecure = 'tls';
+                        $mail->Port       = 587;
+                        $mail->SMTPDebug  = 1;
+                        $mail->SMTPAuth   = true;
+                        $mail->Username   = 'cuponerasm@gmail.com';
+                        $mail->Password   = 'Cupo123456';
+                        $mail->SetFrom('CuponeraSM@info.com', "Cuponera");
+                        $mail->AddReplyTo('no-reply@info.com','no-reply');
+                        $mail->Subject    = 'Clave Registro';
+                        $mail->MsgHTML($body);
+
+                        $mail->AddAddress($_POST["correo"]);
+                        $mail->send();
+                        
                     }
                     echo "
             </div>

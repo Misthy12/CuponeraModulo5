@@ -48,11 +48,11 @@ require '../../Share/PhpMailer/src/SMTP.php';
                             <input type="email" name="correo" id="correo" class="form-control" placeholder="alguien.mas@gmail.com" require/>
                             <br>
                         </div>
-                        <div class="col-md-6 col-sm-12">
+                        <!-- <div class="col-md-6 col-sm-12">
                             <label for="clave">Contraseña</label>
-                            <input type="text" name="clave" id="clave" readonly class="form-control" value="<?php echo generarCodigoS(6); ?>" require/>
                             <br>
-                        </div>
+                        </div> -->
+                            <input type="hidden" name="clave" id="clave" readonly class="form-control" value="<?php echo generarCodigoS(6); ?>" require/>
                     </div>
                     
                     <!-- <label for="direccion">Direccion</label>
@@ -81,25 +81,9 @@ require '../../Share/PhpMailer/src/SMTP.php';
                         if($_POST["nombre"]!="" && $_POST["empresa"] != "" && $_POST["encargado"]!="" && $_POST["correo"]!="" && $_POST["clave"]!=""){
                             $clave=password_hash($_POST["clave"], PASSWORD_DEFAULT);//clave encriptada
 
-                            $mail=new PHPMailer();
-                            $mail->CharSet = 'UTF-8';
-                            $body = "".$_POST["nombre"]." Gracias por registarse su Contraseña de Ingreso es:".$_POST["clave"]." Por favor Cambiarla";
-                            $mail->IsSMTP();
-                            $mail->Host       = 'smtp.gmail.com';
-                            $mail->SMTPSecure = 'tls';
-                            $mail->Port       = 587;
-                            $mail->SMTPDebug  = 1;
-                            $mail->SMTPAuth   = true;
-                            $mail->Username   = 'cuponerasm@gmail.com';
-                            $mail->Password   = 'Cupo123456';
-                            $mail->SetFrom('CuponeraSM@info.com', "Cuponera");
-                            $mail->AddReplyTo('no-reply@info.com','no-reply');
-                            $mail->Subject    = 'Clave Registro';
-                            $mail->MsgHTML($body);
+                          
 
-                            $mail->AddAddress($_POST["correo"]);
-                            $mail->send();
-
+                            //consulta
                             $sql = "INSERT INTO tblSucursales(nombreSucursal, idEmpresa, nombreEncargadoSuc, password,correo)
                                     VALUES ('".$_POST["nombre"]."','".$_POST["empresa"]."','".$_POST["encargado"]."',
                                     '".$clave."','".$_POST["correo"]."')";
@@ -124,6 +108,25 @@ require '../../Share/PhpMailer/src/SMTP.php';
                                 echo "Aun faltan campos por llenar!! :<";
                                 echo "</div>";
                         }
+                          //envio a correo
+                          $mail=new PHPMailer();
+                          $mail->CharSet = 'UTF-8';
+                          $body = "".$_POST["nombre"]." Gracias por registarse su Contraseña de Ingreso es: ".$_POST["clave"].". Por favor Cambiarla";
+                          $mail->IsSMTP();
+                          $mail->Host       = 'smtp.gmail.com';
+                          $mail->SMTPSecure = 'tls';
+                          $mail->Port       = 587;
+                          $mail->SMTPDebug  = 1;
+                          $mail->SMTPAuth   = true;
+                          $mail->Username   = 'cuponerasm@gmail.com';
+                          $mail->Password   = 'Cupo123456';
+                          $mail->SetFrom('CuponeraSM@info.com', "Cuponera");
+                          $mail->AddReplyTo('no-reply@info.com','no-reply');
+                          $mail->Subject    = 'Clave Registro';
+                          $mail->MsgHTML($body);
+
+                          $mail->AddAddress($_POST["correo"]);
+                          $mail->send();
                     }
                     echo "
            </div>
