@@ -85,29 +85,6 @@ require '../../Share/PhpMailer/src/SMTP.php';
                         if($_POST["nombre"]!="" && $_POST["empresa"] != "" && $_POST["encargado"]!="" && $_POST["correo"]!="" && $_POST["clave"]!=""){
                             $clave=password_hash($_POST["clave"], PASSWORD_DEFAULT);//clave encriptada
 
-<<<<<<< HEAD
-                          
-=======
-                            $mail=new PHPMailer();
-                            $mail->CharSet = 'UTF-8';
-                            $body = "".$_POST["encargado"]." Gracias por registarse su Contraseña de Ingreso es:".$_POST["clave"]." Por favor Cambiarla";
-                            $mail->IsSMTP();
-                            $mail->Host       = 'smtp.gmail.com';
-                            $mail->SMTPSecure = 'tls';
-                            $mail->Port       = 587;
-                            $mail->SMTPDebug  = 1;
-                            $mail->SMTPAuth   = true;
-                            $mail->Username   = 'cuponerasm@gmail.com';
-                            $mail->Password   = 'Cupo123456';
-                            $mail->SetFrom('CuponeraSM@info.com', "Cuponera");
-                            $mail->AddReplyTo('no-reply@info.com','no-reply');
-                            $mail->Subject    = 'Clave Registro';
-                            $mail->MsgHTML($body);
-
-                            $mail->AddAddress($_POST["correo"]);
-                            $mail->send();
->>>>>>> a4c2eb417b4c0c2d5081bfe160c98bf493701146
-
                             //consulta
                             $sql = "INSERT INTO tblSucursales(nombreSucursal, idEmpresa, nombreEncargadoSuc, password,correo)
                                     VALUES ('".$_POST["nombre"]."','".$_POST["empresa"]."','".$_POST["encargado"]."',
