@@ -96,7 +96,7 @@ require '../../Share/PhpMailer/src/SMTP.php';
                             //consulta
                             $sql = "INSERT INTO tblEmpresas(nombreEmpresa, codigoEmpresa, telefono, correo, clave, direccion,idRubro,porcentajeComision)
                                     VALUES ('".$_POST["nombre"]."','".$_POST["codigo"]."','".$_POST["telefono"]."', '".$_POST["correo"]."',
-                                    '".$_POST["clave"]."','".$_POST["direccion"]."','".$_POST["rubro"]."','".$_POST["comision"]."')";
+                                    '".$clave."','".$_POST["direccion"]."','".$_POST["rubro"]."','".$_POST["comision"]."')";
             
                             $count = $conn->exec($sql);
 
