@@ -48,15 +48,11 @@ require '../../Share/PhpMailer/src/SMTP.php';
                             <input type="email" name="correo" id="correo" class="form-control" placeholder="alguien.mas@gmail.com" require/>
                             <br>
                         </div>
-<<<<<<< HEAD
-                        <!-- <div class="col-md-6 col-sm-12">
-=======
                         <div class="col-md-6 col-sm-12" hidden> 
->>>>>>> a4c2eb417b4c0c2d5081bfe160c98bf493701146
                             <label for="clave">Contraseña</label>
                             <br>
-                        </div> -->
                             <input type="hidden" name="clave" id="clave" readonly class="form-control" value="<?php echo generarCodigoS(6); ?>" require/>
+                        </div> 
                     </div>
                     
                     <!-- <label for="direccion">Direccion</label>

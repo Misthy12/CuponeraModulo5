@@ -38,11 +38,10 @@
                                     echo "<p class='text-lg-center'> <b>Precio Regular: </b><s class='text-danger'>$".$row["precioRegular"]."</s></p>";
                                     echo "</div>";
                                     echo "<div class='card-footer text-center font-weight-bold'> Ultima Fecha de Canje: ".$row["fechaLimite"];
-                                    // echo "<a type='submit'  href=\"../Ofertas/info_oferta.php?codigo=".$row["id"]."\" class='fas fa-eye btn btn-sm btn-outline-info text-center btn-block' title='Ver'>Ver Oferta</a></div>";
-                                    echo "</div>";
+                                    echo "</div></div>";
                                     // }
                                 }
-                            echo "</div></div>";
+                            echo "</div>";
                             CloseCon($conn);
                     ?>
                 </div>
@@ -57,6 +56,7 @@
                             INNER JOIN tblEstadosCupon e ON o.estado=e.idEstadoCupon WHERE o.estado=5 ";
 
                             //Imprecion de formulario
+                            echo "<div class='row col-12'>";
                             foreach($conn->query($sql) as $row){
                                 echo "<div class='card col-sm-12 col-md-3'>";
                                 echo "<div class='card-header bg-danger'> <h4 class='text-center'>OFERTA VENCIDA</h4></div>";
@@ -67,11 +67,10 @@
                                 echo "<p class='text-lg-center'> <b>Precio Regular: </b><s class='text-danger'>$".$row["precioRegular"]."</s></p>";
                                 echo "</div>";
                                 echo "<div class='card-footer text-center font-weight-bold'> Ultima Fecha de Canje: ".$row["fechaLimite"];
-                                // echo "<a type='submit'  href=\"../Ofertas/info_oferta.php?codigo=".$row["id"]."\" class='fas fa-eye btn btn-sm btn-outline-info text-center btn-block' title='Ver'>Ver Oferta</a></div>";
-                                echo "</div>";
-                                // }
-                                    // }
+                                echo "</div></div>";
+
                                 }
+                                echo "</div>";
                                 CloseCon($conn);
                     ?>
                 </div>
