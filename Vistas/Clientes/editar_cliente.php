@@ -38,12 +38,12 @@
                     <div class="row col-12 form-group">
                         <div class="col-md-6 col-sm-12">
                             <label for="nombreCliente">Nombre</label>
-                            <input type="text" name="nombreCliente" id="nombreCliente" class="form-control" value="<?php echo $row->nombresCliente?>" require/>
+                            <input type="text" name="nombreCliente" id="nombreCliente" class="form-control" value="<?php echo $row->nombresCliente?>" required/>
                             <br>
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <label for="apellidoCliente">Apellido</label>
-                            <input type="text" name="apellidoCliente" id="apellidoCliente" class="form-control" value="<?php echo $row->apellidosClientes?>" require/>
+                            <input type="text" name="apellidoCliente" id="apellidoCliente" class="form-control" value="<?php echo $row->apellidosClientes?>" required/>
                             <br>
                         </div>
                     </div>
@@ -51,26 +51,26 @@
                     <div class="row col-12 form-group">
                         <div class="col-md-6 col-sm-12">
                             <label for="telefono">Telefono</label>
-                            <input type="text" name="telefono" id="telefono" class="form-control" value="<?php echo $row->telefono?>" require/>
+                            <input type="text" name="telefono" id="telefono" class="form-control" value="<?php echo $row->telefono?>" required/>
                             <br>
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <label for="correo">Correo Electronico</label>
-                            <input type="email" name="correo" id="correo" class="form-control" value="<?php echo $row->correoCliente?>" require/>
+                            <input type="email" name="correo" id="correo" class="form-control" value="<?php echo $row->correoCliente?>" required/>
                             <br>
                         </div>
                     </div>
 
                     <div class="col-12">
                         <label for="direccion">Direccion</label>
-                        <textarea type="text" name="direccion" id="direccion" class="form-control" col="3" value="" require><?php echo $row->direccionCliente?></textarea>
+                        <textarea type="text" name="direccion" id="direccion" class="form-control" col="3" value="" required><?php echo $row->direccionCliente?></textarea>
                         <br>
                     </div>
 
                     <div class="row col-12 form-group">
                         <div class="col-md-6 col-sm-12">
                             <label for="dui">DUI</label>
-                            <input type="text" name="dui" id="dui" class="form-control" value="<?php echo $row->dui?>" require/>
+                            <input type="text" name="dui" id="dui" class="form-control" value="<?php echo $row->dui?>" required/>
                             <br>
                         </div>
                         <div class="col-md-6 col-sm-12">
@@ -80,7 +80,7 @@
                         </div>
                     </div>
                     
-                    <input type="hidden" name="id" id="id" class="form-control" value="<?php echo $row->idCliente?>" require/>
+                    <input type="hidden" name="id" id="id" class="form-control" value="<?php echo $row->idCliente?>" required/>
                     <input type="Submit" value="Guardar" name="submit" class="btn btn-success">
                     
                     <?php

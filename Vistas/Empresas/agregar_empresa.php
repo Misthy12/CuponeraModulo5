@@ -20,13 +20,13 @@ require '../../Share/PhpMailer/src/SMTP.php';
                     <div class="row col-12 form-group">
                         <div class="col-md-7 col-sm-12">
                             <label for="nombre">Nombre</label>
-                            <input type="text" name="nombre" id="nombre" placeholder="Anoquio Corp" class="form-control" require/>
+                            <input type="text" name="nombre" id="nombre" placeholder="Anoquio Corp" class="form-control" required/>
                             <br>
                         </div>
                         
                         <div class="col-md-5 col-sm-12">
                             <label for="codigo">codigo</label>
-                            <input type="text" name="codigo" id="codigo" class="form-control" value="<?php echo generarCodigo(3)?>"  readonly require/>
+                            <input type="text" name="codigo" id="codigo" class="form-control" value="<?php echo generarCodigo(3)?>"  readonly required/>
                             <br>
                         </div>
                     </div>
@@ -34,7 +34,7 @@ require '../../Share/PhpMailer/src/SMTP.php';
                     <div class="row col-12 form-group">
                         <div class="col-md-7 col-sm-12">
                             <label for="rubro">Rubro</label>
-                            <select type="text" name="rubro" id="rubro" class="form-control" require>
+                            <select type="text" name="rubro" id="rubro" class="form-control" required>
                                 <option value="">Seleccione...</option>
                                 <?php
                                     foreach ($conn->query($consultaRubro) as $valor) {
@@ -47,31 +47,31 @@ require '../../Share/PhpMailer/src/SMTP.php';
                         
                         <div class="col-md-5 col-sm-12">
                             <label for="comision">Comision</label>
-                            <input type="number" name="comision" id="comision" class="form-control" step="0.1" placeholder="%" require/>
+                            <input type="number" name="comision" id="comision" class="form-control" step="0.1" placeholder="%" required/>
                             <br>
                         </div>
                     </div>
                     
                     <div class="col-12">
                         <label for="direccion">Direccion</label>
-                        <textarea type="text" name="direccion" id="direccion" class="form-control" col="3" placeholder="Algun lugar en el mundo" require></textarea>
+                        <textarea type="text" name="direccion" id="direccion" class="form-control" col="3" placeholder="Algun lugar en el mundo" required></textarea>
                         <br>
                     </div>
                     <div class="row col-12 form-group">
                         <div class="col-md-5 col-sm-12">  
                             <label for="telefono">Telefono</label>
-                            <input type="tel" name="telefono" id="telefono" placeholder="7535-9699" class="form-control" require/>
+                            <input type="tel" name="telefono" id="telefono" placeholder="7535-9699" class="form-control" required/>
                             <br>
                         </div>
                             
                         <div class="col-md-7 col-sm-12">
                             <label for="correo">Correo Electronico</label>
-                            <input type="email" name="correo" id="correo" class="form-control" placeholder="alguien@gmail.com" require/>
+                            <input type="email" name="correo" id="correo" class="form-control" placeholder="alguien@gmail.com" required/>
                             <br>
                         </div>
                     </div>
                     
-                    <input type="hidden" name="clave" id="clave" class="form-control" value="<?php echo generarClaves(10)?> " require/>
+                    <input type="hidden" name="clave" id="clave" class="form-control" value="<?php echo generarClaves(10)?> " required/>
 
                     <input type="Submit" value="Guardar" name="submit" class="btn btn-success">
                     <a href="listado_empresas.php" class="btn btn-info">Regresar</a>

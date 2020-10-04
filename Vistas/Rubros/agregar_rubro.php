@@ -10,11 +10,11 @@ include "../../Share/header.php";
             <div class="card-body">
                 <form action="" method="POST">
                     <label for="nombreRubro">Nombre</label>
-                    <input type="text" name="nombreRubro" id="nombreRubro" class="form-control" require/>
+                    <input type="text" name="nombreRubro" id="nombreRubro" class="form-control" required/>
                     <br>
  
                     <label for="descripcion">Descripcion</label>
-                    <textarea type="text" name="descripcion" id="descripcion" class="form-control" row="3" require></textarea>
+                    <textarea type="text" name="descripcion" id="descripcion" class="form-control" row="3" required></textarea>
                     <br>
                     
                     <input type="Submit" value="Guardar" name="submit" class="btn btn-success">

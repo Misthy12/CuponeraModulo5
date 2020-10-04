@@ -13,48 +13,48 @@ include "../../Share/header.php";
                     <div class="row col-12 form-group">
                         <div class="col-md-6 col-sm-12">
                             <label for="nombreCliente">Nombre</label>
-                            <input type="text" name="nombreCliente" id="nombreCliente" class="form-control" require/>
+                            <input type="text" name="nombreCliente" id="nombreCliente" class="form-control" required/>
                             <br>
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <label for="apellidoCliente">Apellido</label>
-                            <input type="text" name="apellidoCliente" id="apellidoCliente" class="form-control" require/>
+                            <input type="text" name="apellidoCliente" id="apellidoCliente" class="form-control" required/>
                             <br>
                         </div>
                     </div>
                     <div class="row col-12 form-group">
                         <div class="col-md-6 col-sm-12">
                             <label for="telefono">Telefono</label>
-                            <input type="text" name="telefono" id="telefono" class="form-control" require/>
+                            <input type="text" name="telefono" id="telefono" class="form-control" required/>
                             <br>
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <label for="correo">Correo Electronico</label>
-                            <input type="email" name="correo" id="correo" class="form-control" require/>
+                            <input type="email" name="correo" id="correo" class="form-control" required/>
                             <br>
                         </div>
                     </div>
 
                     <div class="col-12">
                         <label for="direccion">Direccion</label>
-                        <textarea type="text" name="direccion" id="direccion" class="form-control" col="3" placeholder="Ingrese su direccion" require></textarea>
+                        <textarea type="text" name="direccion" id="direccion" class="form-control" col="3" placeholder="Ingrese su direccion" required></textarea>
                         <br>
                     </div>
 
                     <div class="row col-12 form-group">
                         <div class="col-md-4 col-sm-12">
                             <label for="dui">DUI</label>
-                            <input type="text" name="dui" id="dui" class="form-control" placeholder="0000000-0" require/>
+                            <input type="text" name="dui" id="dui" class="form-control" placeholder="0000000-0" required/>
                             <br>
                         </div>
                         <div class="col-md-4 col-sm-12">
                             <label for="clave">Contraseña</label>
-                            <input type="password" name="clave" id="clave" class="form-control" require/>
+                            <input type="password" name="clave" id="clave" class="form-control" required/>
                             <br>
                         </div>
                         <div class="col-md-4 col-sm-12">
                             <label for="estado">Estado</label>
-                            <input type="text" name="estado" id="estado" class="form-control" value="No Verificado" readonly require/>
+                            <input type="text" name="estado" id="estado" class="form-control" value="No Verificado" readonly required/>
 
                             <!-- <select type="text" name="estado" id="estado" class="form-control" require>
                                 <option value="verificado" >Verificado</option>

@@ -42,13 +42,13 @@
                     <div class="row col-12 form-group">
                         <div class="col-md-7 col-sm-12">
                             <label for="nombre">Nombre</label>
-                            <input type="text" name="nombre" id="nombre" class="form-control" value="<?php echo $row->nombreEmpresa ?>" require/>
+                            <input type="text" name="nombre" id="nombre" class="form-control" value="<?php echo $row->nombreEmpresa ?>" required/>
                             <br>
                         </div>
                         
                         <div class="col-md-5 col-sm-12">
                             <label for="codigo">codigo</label>
-                            <input type="text" name="codigo" id="codigo" class="form-control" value="<?php echo $row->codigoEmpresa ?>" readonly require/>
+                            <input type="text" name="codigo" id="codigo" class="form-control" value="<?php echo $row->codigoEmpresa ?>" readonly required/>
                              <br>        
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                     <div class="row col-12 form-group">
                         <div class="col-md-7 col-sm-12">
                             <label for="rubro">Rubro</label>
-                            <select type="text" name="rubro" id="rubro" class="form-control" require>
+                            <select type="text" name="rubro" id="rubro" class="form-control" required>
                                 <option value="<?php echo $row->idRubro ?>"><?php echo $row->rubro?></option>
                                 <?php
                                     foreach ($conn->query($consultaRubro) as $valor) {
@@ -68,26 +68,26 @@
                         </div>
                         <div class="col-md-5 col-sm-12">
                             <label for="comision">Comision</label>
-                            <input type="number" name="comision" id="comision" class="form-control"  placeholder="%" value="<?php echo $row->porcentajeComision?>" require/>
+                            <input type="number" name="comision" id="comision" class="form-control"  placeholder="%" value="<?php echo $row->porcentajeComision?>" required/>
                             <br>
                             </div>
                     </div>
                     <div class="col-12">
                         <label for="direccion">Direccion</label>
-                        <textarea type="text" name="direccion" id="direccion" class="form-control" col="3" require><?php echo $row->direccion ?></textarea>
+                        <textarea type="text" name="direccion" id="direccion" class="form-control" col="3" required><?php echo $row->direccion ?></textarea>
                         <br>
                     </div>
                     
                     <div class="row col-12 form-group">
                         <div class="col-md-5 col-sm-12"> 
                             <label for="telefono">Telefono</label>
-                            <input type="text" name="telefono" id="telefono" class="form-control" value="<?php echo $row->telefono ?>" require/>
+                            <input type="text" name="telefono" id="telefono" class="form-control" value="<?php echo $row->telefono ?>" required/>
                             <br>
                         </div>
                             
                         <div class="col-md-7 col-sm-12">
                             <label for="correo">Correo Electronico</label>
-                            <input type="email" name="correo" id="correo" class="form-control" placeholder="alguien@gmail.com" require/>
+                            <input type="email" name="correo" id="correo" class="form-control" placeholder="alguien@gmail.com" required/>
                             <br>
                         </div>
                     </div>

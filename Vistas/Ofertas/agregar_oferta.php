@@ -15,13 +15,13 @@ include '../../Share/conexion.php';
                     <div class="row col-12 form-group">
                         <div class="col-md-7 col-sm-12">
                             <label for="nombre">Titulo</label>
-                            <input type="text" name="nombre" id="nombre" class="form-control" require/>
+                            <input type="text" name="nombre" id="nombre" class="form-control" required/>
                             <br>
                         </div>
                         
                         <div class="col-md-5 col-sm-12">
                             <label for="empresa">Sucursal</label>
-                            <select type="text" name="empresa" id="empresa" class="form-control" require>
+                            <select type="text" name="empresa" id="empresa" class="form-control" required>
                             <option value="">Seleccione...</option>
                             <?php
                                     foreach ($conn->query($consultaSucursal) as $valor) {
@@ -35,12 +35,12 @@ include '../../Share/conexion.php';
                     <div class="row col-12 form-group">
                         <div class="col-md-6 col-sm-12">
                             <label for="precioRegular">Precio Regular</label>
-                            <input type="number" name="precioRegular" id="precioRegular" step="0.5" class="form-control" placeholder="$1.25" require/>
+                            <input type="number" name="precioRegular" id="precioRegular" step="0.5" class="form-control" placeholder="$1.25" required/>
                             <br>
                         </div>  
                         <div class="col-md-6 col-sm-12">
                             <label for="precioOferta">Precio Oferta</label>
-                            <input type="number" name="precioOferta" id="precioOferta" step="0.5" class="form-control" placeholder="$1.25" require/>
+                            <input type="number" name="precioOferta" id="precioOferta" step="0.5" class="form-control" placeholder="$1.25" required/>
                             <br>
                         </div>
                     </div>
@@ -48,17 +48,17 @@ include '../../Share/conexion.php';
                     <div class="row col-12 form-group">
                         <div class="col-md-4 col-sm-12">
                             <label for="inicio">Fecha Inicio</label>
-                            <input type="date" name="inicio" id="inicio" class="form-control" min="<?php date("Y-m-d") ?>" value="<?php date("Y-m-d") ?>" require/>
+                            <input type="date" name="inicio" id="inicio" class="form-control" min="<?php date("Y-m-d") ?>" value="<?php date("Y-m-d") ?>" required/>
                             <br>
                         </div>
                         <div class="col-md-4 col-sm-12">
                             <label for="fin">Fecha Fin</label>
-                            <input type="date" name="fin" id="fin" class="form-control" min="<?php date("Y-m-d") ?>" require/>
+                            <input type="date" name="fin" id="fin" class="form-control" min="<?php date("Y-m-d") ?>" required/>
                             <br>
                         </div>
                         <div class="col-md-4 col-sm-12">
                             <label for="limite">Fecha Limite</label>
-                            <input type="date" name="limite" id="limite" min class="form-control" min="<?php date("Y-m-d") ?>"  require/>
+                            <input type="date" name="limite" id="limite" min class="form-control" min="<?php date("Y-m-d") ?>"  required/>
                             <br>
                         </div>
 
@@ -81,7 +81,7 @@ include '../../Share/conexion.php';
                     
                     <div class="col-12">
                         <label for="descripcion">Descripcion</label>
-                        <textarea name="descripcion" id="descripcion" class="form-control" col="3" placeholder="Describe tu oferta" require> </textarea>
+                        <textarea name="descripcion" id="descripcion" class="form-control" col="3" placeholder="Describe tu oferta" required> </textarea>
                         <br>
                     </div>
 
