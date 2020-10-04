@@ -76,10 +76,10 @@ include '../../Share/conexion.php';
                         }
 
                         if($_POST["nombre"]!="" && $_POST["empresa"] != "" && $_POST["encargado"]!="" && $_POST["correo"]!="" && $_POST["clave"]!=""){
-                            
+                            $clave=password_hash($_POST["clave"], PASSWORD_DEFAULT);//clave encriptada
                             $sql = "INSERT INTO tblSucursales(nombreSucursal, idEmpresa, nombreEncargadoSuc, password,correo)
                                     VALUES ('".$_POST["nombre"]."','".$_POST["empresa"]."','".$_POST["encargado"]."',
-                                    '".$_POST["clave"]."','".$_POST["correo"]."')";
+                                    '".$clave."','".$_POST["correo"]."')";
 
                             $count = $conn->exec($sql);
 

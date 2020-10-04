@@ -100,9 +100,10 @@
                         }
 
                         if($_POST["nombreCliente"]!="" && $_POST["apellidoCliente"] != "" && $_POST["telefono"]!="" && $_POST["correo"]!="" && $_POST["direccion"]!="" && $_POST["dui"]!="" &&$_POST["clave"]!=""){
+                            $clave=password_hash($_POST["clave"], PASSWORD_DEFAULT);//clave encriptada
                             $sql = "INSERT INTO tblClientes(nombresCliente, apellidosClientes, telefono, correoCliente, direccionCliente,dui,password,estado)
                                     VALUES ('".$_POST["nombreCliente"]."','".$_POST["apellidoCliente"]."','".$_POST["telefono"]."','".$_POST["correo"]."',
-                                    '".$_POST["direccion"]."','".$_POST["dui"]."','".$_POST["clave"]."','".$_POST["estado"]."')";
+                                    '".$_POST["direccion"]."','".$_POST["dui"]."','".$clave."','".$_POST["estado"]."')";
 
                             $count = $conn->exec($sql);
 
