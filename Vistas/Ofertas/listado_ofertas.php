@@ -24,15 +24,11 @@ include "../../Share/header.php";
             include '../../Share/conexion.php';
             $conn =OpenCon();
             $sucursal= $_SESSION["id"];
-            if($_SESSION["login"]="Sucursal"){
-            $sql="SELECT o.idCupon as id,o.tituloOferta as titulo, s.nombreSucursal as sucursal, o.precioOferta, e.definirEstado as estado, o.descripcion, o.fechaInicio, o.fechaFin  FROM tblCupones o
+            $log= $_SESSION["login"];
+            
+            $sql="SELECT o.idCupon as id,o.tituloOferta as titulo, s.nombreSucursal as sucursal, o.idSucursal, o.precioOferta, e.definirEstado as estado, o.descripcion, o.fechaInicio, o.fechaFin  FROM tblCupones o
             INNER JOIN tblSucursales s ON o.idSucursal = s.idSucursal 
-            INNER JOIN tblEstadosCupon e ON o.estado=e.idEstadoCupon WHERE o.idSucursal = $sucursal";}
-            else{
-            $sql="SELECT o.idCupon as id,o.tituloOferta as titulo, s.nombreSucursal as sucursal, o.precioOferta, e.definirEstado as estado, o.descripcion, o.fechaInicio, o.fechaFin  FROM tblCupones o
-            INNER JOIN tblSucursales s ON o.idSucursal = s.idSucursal 
-            INNER JOIN tblEstadosCupon e ON o.estado=e.idEstadoCupon";}
-
+            INNER JOIN tblEstadosCupon e ON o.estado=e.idEstadoCupon";
             ?>
 
             <div class="card-body table-responsive">
@@ -53,7 +49,24 @@ include "../../Share/header.php";
                     <tbody  class="text-center">
                         <?php
                         foreach( $conn->query($sql) as $row){
-                                echo "<tr>";
+                            // if($sucursal=$row["id"]){
+                            //     echo "<tr>";
+                            //         echo "<td>".$row["id"]."</td>";
+                            //         echo "<td>".$row["titulo"]."</td>";
+                            //         echo "<td>".$row["sucursal"]."</td>"; 
+                            //         echo "<td>".$row["descripcion"]."</td>"; 
+                            //         echo "<td> $".$row["precioOferta"]."</td>"; 
+                            //         echo "<td>".$row["estado"]."</td>"; 
+                            //         echo "<td>".$row["fechaInicio"]." al ".$row["fechaFin"]."</td>"; 
+                            //         echo "<td>";
+                            //             echo "<a class='btn btn-sm btn-warning' href=\"./editar_oferta.php?codigo=". $row["id"]."\" ><i class='fas fa-edit'></i></a> \n";
+                            //             echo "<a class='btn btn-sm btn-info' href=\"./info_oferta.php?codigo=". $row["id"]."\" ><i class='fas fa-info'></i></a> \n";
+                            //             echo "<a class=\"btn btn-sm btn-danger\" href=\"./eliminar_ofeta.php?codigo=". $row["id"]."\"><i class=\"far fa-trash-alt\"></i></a>";
+                            //         echo "</td>";
+                            //     echo "</tr>";
+                            // }
+                           // elseif($log="Admin"){
+                                    echo "<tr>";
                                     echo "<td>".$row["id"]."</td>";
                                     echo "<td>".$row["titulo"]."</td>";
                                     echo "<td>".$row["sucursal"]."</td>"; 
@@ -67,6 +80,7 @@ include "../../Share/header.php";
                                         echo "<a class=\"btn btn-sm btn-danger\" href=\"./eliminar_ofeta.php?codigo=". $row["id"]."\"><i class=\"far fa-trash-alt\"></i></a>";
                                     echo "</td>";
                                 echo "</tr>";
+                                //}
                             }
                         ?>
                     </tbody>

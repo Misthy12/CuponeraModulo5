@@ -110,14 +110,19 @@
                                 <option value="<?php echo $row->idEstado ?>" selected disabled><?php echo $row->estado?></option>
                                  <?php
                                     foreach ($conn->query($consultaEstado) as $valor) {
-                                         if($_SESSION["login"]="Sucursal"){
-                                             if($valor["idEstadoCupon"]!=2 && $valor["idEstadoCupon"]!=1 && $valor["idEstadoCupon"]!=3){
-                                                echo "<option value='".$valor["idEstadoCupon"]." '>".$valor["definirEstado"]."</option>";
-                                             }
-                                        }
-                                        else
-                                        {echo "<option value='".$valor["idEstadoCupon"]."'>".$valor["definirEstado"]."</option>";}
-                                    }
+                                        //  if($_SESSION["login"]="Sucursal"){
+                                        //      if($valor["idEstadoCupon"]!=2 && $valor["idEstadoCupon"]!=1 && $valor["idEstadoCupon"]!=3){
+                                        //         echo "<option value='".$valor["idEstadoCupon"]." '>".$valor["definirEstado"]."</option>";
+                                        //      }
+                                        //      else{
+                                            echo "<option value='".$valor["idEstadoCupon"]." '>".$valor["definirEstado"]."</option>";
+                                        //      }
+                                        // }
+                                        // elseif($_SESSION["login"]="Admin"){
+                                        //     if($valor["idEstadoCupon"]!=4 && $valor["idEstadoCupon"]!=5){
+                                        //     echo "<option value='".$valor["idEstadoCupon"]."'>".$valor["definirEstado"]."</option>";
+                                        // } }
+                                }
                                 ?>
                             </select>
                         </div>
