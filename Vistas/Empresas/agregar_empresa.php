@@ -2,6 +2,8 @@
 include "../../Share/header.php";
  include "../../Share/funcionesGenerativas.php";
 include '../../Share/conexion.php';
+require '../../Share/PhpMailer/src/PHPMailer.php';
+require '../../Share/PhpMailer/src/SMTP.php';
     $conn=OpenCon();
     $consultaRubro="SELECT *FROM tblRubros";
     
