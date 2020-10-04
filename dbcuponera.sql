@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-09-2020 a las 07:00:18
+-- Tiempo de generación: 04-10-2020 a las 05:31:57
 -- Versión del servidor: 10.4.13-MariaDB
 -- Versión de PHP: 7.4.7
 
@@ -35,7 +35,7 @@ CREATE TABLE `tblclientes` (
   `correoCliente` varchar(75) NOT NULL,
   `direccionCliente` varchar(150) DEFAULT NULL,
   `dui` varchar(9) NOT NULL,
-  `password` varchar(25) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `estado` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -44,8 +44,8 @@ CREATE TABLE `tblclientes` (
 --
 
 INSERT INTO `tblclientes` (`idCliente`, `nombresCliente`, `apellidosClientes`, `telefono`, `correoCliente`, `direccionCliente`, `dui`, `password`, `estado`) VALUES
-(1, 'Andres Roberto', 'Reinaldi', '2222-2222', 'akslasklfds@gmail.com', 'San Miguel', '0000000-0', '12345687', 'noVerificado'),
-(3, 'Fidel', 'García', '72740495', 'matinezfidel@gmail.com', 'Ruta SAM10N, Caserio Chispa contiguo a Resd. River Side North', '0000000-3', 'FIDEL12', 'No Verificado');
+(3, 'Fidel', 'García', '72740495', 'matinezfidel@gmail.com', 'Ruta SAM10N, Caserio Chispa contiguo a Resd. River Side North', '0000000-3', '$2y$10$Pg/hpm6WkoTc8SwYh', 'No Verificado'),
+(6, 'Fidel', 'Martínez', '72740495', 'matinezfidel@gmail.com', 'Riverside Garden, San Miguel, El Salvador', '0000000-3', '$2y$10$gIRMDAPnQP2OBOkqr9n9c.pmJN.AO5NjnIKvTSFJI1elIRFEwbg7y', 'No Verificado');
 
 -- --------------------------------------------------------
 
@@ -59,6 +59,17 @@ CREATE TABLE `tblcompracupon` (
   `idCupon` int(11) NOT NULL,
   `codigoCompra` varchar(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tblcompracupon`
+--
+
+INSERT INTO `tblcompracupon` (`idCompra`, `idCliente`, `idCupon`, `codigoCompra`) VALUES
+(1, 3, 2, 'EM10CUPO1575'),
+(8, 3, 2, 'EM10CUPO1575'),
+(9, 3, 1, 'EM10CUPO1575'),
+(10, 3, 1, 'EM10CUPO1575'),
+(11, 3, 2, 'EM10CUPO1575');
 
 -- --------------------------------------------------------
 
@@ -87,7 +98,9 @@ CREATE TABLE `tblcupones` (
 --
 
 INSERT INTO `tblcupones` (`idCupon`, `tituloOferta`, `IdSucursal`, `precioRegular`, `precioOferta`, `fechaInicio`, `fechaFin`, `fechaLimite`, `cantidad`, `descripcion`, `estado`, `justificacion`, `otros`) VALUES
-(1, 'Camisas - 25', 2, '100.00', '75.00', '2020-09-30', '2020-11-25', '2020-11-30', 10, ' Por la compra de camisas aplica un 25% de Descuento', 1, NULL, NULL);
+(1, 'Camisas - 25', 2, '100.00', '75.00', '2020-09-30', '2020-11-25', '2020-11-30', 10, ' Por la compra de camisas aplica un 25% de Descuento ', 2, NULL, NULL),
+(2, 'Pantalon Tommy', 2, '25.00', '15.00', '2020-09-30', '2020-10-10', '2020-10-11', 2, ' sfgsag ', 2, NULL, NULL),
+(3, 'Gorras', 2, '5.00', '3.50', '2020-10-03', '2020-10-31', '2020-10-29', 5, ' Promocion de gorras', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -168,7 +181,7 @@ CREATE TABLE `tblsucursales` (
   `nombreSucursal` varchar(50) NOT NULL,
   `idEmpresa` int(11) NOT NULL,
   `nombreEncargadoSuc` varchar(150) NOT NULL,
-  `password` varchar(25) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `correo` varchar(75) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -177,7 +190,7 @@ CREATE TABLE `tblsucursales` (
 --
 
 INSERT INTO `tblsucursales` (`idSucursal`, `nombreSucursal`, `idEmpresa`, `nombreEncargadoSuc`, `password`, `correo`) VALUES
-(2, 'Texti San Miguel', 1, 'Rina Robledo', '12345678', 'texti.sanmiguel@gmail.com');
+(2, 'Texti San Miguel', 1, 'Rina Robledo', '$2y$10$gIRMDAPnQP2OBOkqr9n9c.pmJN.AO5NjnIKvTSFJI1elIRFEwbg7y', 'texti.sanmiguel@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -189,7 +202,7 @@ CREATE TABLE `tblusuarios` (
   `idUsuario` int(11) NOT NULL,
   `nombreUsuario` varchar(150) NOT NULL,
   `email` varchar(250) NOT NULL,
-  `password` varchar(250) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `estado` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -198,7 +211,7 @@ CREATE TABLE `tblusuarios` (
 --
 
 INSERT INTO `tblusuarios` (`idUsuario`, `nombreUsuario`, `email`, `password`, `estado`) VALUES
-(1, 'Fidel Martinez', 'matinezfidel@gmail.com', '12345678', '1');
+(1, 'Fidel Martinez', 'matinezfidel@gmail.com', '$2y$10$gIRMDAPnQP2OBOkqr9n9c.pmJN.AO5NjnIKvTSFJI1elIRFEwbg7y', '1');
 
 --
 -- Índices para tablas volcadas
@@ -267,19 +280,19 @@ ALTER TABLE `tblusuarios`
 -- AUTO_INCREMENT de la tabla `tblclientes`
 --
 ALTER TABLE `tblclientes`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `tblcompracupon`
 --
 ALTER TABLE `tblcompracupon`
-  MODIFY `idCompra` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idCompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `tblcupones`
 --
 ALTER TABLE `tblcupones`
-  MODIFY `idCupon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idCupon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tblempresas`

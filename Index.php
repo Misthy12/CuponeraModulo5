@@ -160,15 +160,14 @@ include("Share/conexion.php"); //incluimos el archivo que se conecta a la base d
 $conn=OpenCon();
 if (isset($_POST['btnCliente'])) { //comprobamos si se envían variables desde el form por el método POST
   $email=$_POST["email"]; //Capturamos lo digitado por el usuario en la caja de texto de nombre usuario
-  $clave=$_POST["password"];//Capturamos lo digitado por el usuario en la caja de texto de nombre clave encriptada
-  //$hash_password= hash('sha256', $password); //Password encryption 
-  $stmt = $conn->prepare("SELECT *FROM tblclientes WHERE correoCliente=:email AND password=:clave"); 
+  $clave=$_POST["password"];//clave encriptada
+  $stmt = $conn->prepare("SELECT *FROM tblclientes WHERE correoCliente=:email"); 
   $stmt->bindParam("email", $email,PDO::PARAM_STR) ;
-  $stmt->bindParam("clave", $clave,PDO::PARAM_STR) ;
+  //$stmt->bindParam("clave", $clave,PDO::PARAM_STR) ;
   $stmt->execute();
   $count=$stmt->rowCount();
   $data=$stmt->fetch(PDO::FETCH_OBJ);
-  if($count){
+  if($count>0 && password_verify($clave,$data->password) ){
     //variables allevar
     $_SESSION['id']=$data->idCliente; // Storing user session value
     $_SESSION["nombre"]=$data->nombresCliente;
@@ -190,15 +189,15 @@ if (isset($_POST['btnCliente'])) { //comprobamos si se envían variables desde e
 }
 else if (isset($_POST['btnEmpresa'])) { //comprobamos si se envían variables desde el form por el método POST
   $email=$_POST["email"]; //Capturamos lo digitado por el usuario en la caja de texto de nombre usuario
-  $clave=$_POST["password"];//Capturamos lo digitado por el usuario en la caja de texto de nombre clave encriptada
+  $clave=$_POST["password"];//clave encriptada
   //$hash_password= hash('sha256', $password); //Password encryption 
-  $stmt = $conn->prepare("SELECT *FROM tblsucursales WHERE correo=:email AND password=:clave"); 
+  $stmt = $conn->prepare("SELECT *FROM tblsucursales WHERE correo=:email"); 
   $stmt->bindParam("email", $email,PDO::PARAM_STR) ;
-  $stmt->bindParam("clave", $clave,PDO::PARAM_STR) ;
+  //$stmt->bindParam("clave", $clave,PDO::PARAM_STR) ;
   $stmt->execute();
   $count=$stmt->rowCount();
   $data=$stmt->fetch(PDO::FETCH_OBJ);
-  if($count){
+  if($count>0 && password_verify($clave,$data->password) ){
     //variables allevar
     $_SESSION['id']=$data->idSucursal; // Storing user session value
     $_SESSION["nombre"]=$data->nombreSucursal;
@@ -222,15 +221,15 @@ else if (isset($_POST['btnEmpresa'])) { //comprobamos si se envían variables de
 
 else if (isset($_POST['btnAdmin'])) { //comprobamos si se envían variables desde el form por el método POST
   $email=$_POST["email"]; //Capturamos lo digitado por el usuario en la caja de texto de nombre usuario
-  $clave=$_POST["password"];//Capturamos lo digitado por el usuario en la caja de texto de nombre clave encriptada
+  $clave=$_POST["password"];//clave encriptada
   //$hash_password= hash('sha256', $password); //Password encryption 
-  $stmt = $conn->prepare("SELECT *FROM tblUsuarios WHERE email=:email AND password=:clave"); 
+  $stmt = $conn->prepare("SELECT *FROM tblUsuarios WHERE email=:email"); 
   $stmt->bindParam("email", $email,PDO::PARAM_STR) ;
-  $stmt->bindParam("clave", $clave,PDO::PARAM_STR) ;
+  //$stmt->bindParam("clave", $clave,PDO::PARAM_STR) ;
   $stmt->execute();
   $count=$stmt->rowCount();
   $data=$stmt->fetch(PDO::FETCH_OBJ);
-  if($count){
+  if($count>0 && password_verify($clave,$data->password) ){
     //variables allevar
     $_SESSION['id']=$data->idUsuario; // Storing user session value
     $_SESSION["nombre"]=$data->nombreUsuario;

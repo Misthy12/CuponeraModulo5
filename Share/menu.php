@@ -165,7 +165,7 @@
               </li>
             </ul>
           </li>
-          <!--<li class="nav-item has-treeview">
+          <li class="nav-item has-treeview">
              <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
@@ -175,20 +175,20 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/forms/general.html" class="nav-link">
+                <a href="../../Vistas/Usuarios/listado_usuarios.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Usuarios</p>
+                  <p> Listado Usuarios</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/forms/advanced.html" class="nav-link">
+                <a href="../../Vistas/Usuarios/agregar_usuario.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Agregar Usuario</p>
                 </a>
               </li>
             </ul>
           </li>         
-          </li> -->
+          </li>
      
         
           <li class="nav-item has-treeview">
