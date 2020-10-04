@@ -25,10 +25,17 @@ include "../../Share/header.php";
             $conn =OpenCon();
             $sucursal= $_SESSION["id"];
             $log= $_SESSION["login"];
-            
+            if($_SESSION["login"]=="Sucursal"){
             $sql="SELECT o.idCupon as id,o.tituloOferta as titulo, s.nombreSucursal as sucursal, o.idSucursal, o.precioOferta, e.definirEstado as estado, o.descripcion, o.fechaInicio, o.fechaFin  FROM tblCupones o
             INNER JOIN tblSucursales s ON o.idSucursal = s.idSucursal 
-            INNER JOIN tblEstadosCupon e ON o.estado=e.idEstadoCupon";
+            INNER JOIN tblEstadosCupon e ON o.estado=e.idEstadoCupon 
+            Where s.idSucursal=$sucursal";
+            }
+            else{
+                $sql="SELECT o.idCupon as id,o.tituloOferta as titulo, s.nombreSucursal as sucursal, o.idSucursal, o.precioOferta, e.definirEstado as estado, o.descripcion, o.fechaInicio, o.fechaFin  FROM tblCupones o
+                INNER JOIN tblSucursales s ON o.idSucursal = s.idSucursal 
+                INNER JOIN tblEstadosCupon e ON o.estado=e.idEstadoCupon"; 
+            }
             ?>
 
             <div class="card-body table-responsive">
