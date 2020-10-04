@@ -38,7 +38,7 @@
                                 $sqlSucursal->execute(array($sucursal));
                                 $count=$sqlSucursal->rowCount();
                                 $rowS=$sqlSucursal->fetchAll(PDO::FETCH_OBJ);
-                                if($count==0)
+                                if($count==null)
                                 {
                                     ECHO "<h1 class='text-center text-warning'>NO DISPONE DE CUPONES!!</h1>";
                                 }
