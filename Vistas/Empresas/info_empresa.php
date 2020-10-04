@@ -73,9 +73,14 @@
                                 $idE=$row->id;
                                 $sqlEmp=$conn->prepare("SELECT idSucursal, idEmpresa FROM tblSucursales WHERE idEmpresa = $idE");
                                 $sqlEmp->execute(array($idE));
+                                $count=$sqlEmp->rowCount();
                                 $rowE=$sqlEmp->fetchAll(PDO::FETCH_OBJ);
                                 foreach($rowE as $rowE){}
-
+                                if($count==0)
+                                {
+                                    ECHO "<h1 class='text-center text-warning'>LA EMPRESA NO DISPONE DE OFERTAS!!</h1>";
+                                }
+                                else{
                                 if($id=$idE){
                                 $idSuc=$rowE->idSucursal;
                                 $sql="SELECT o.idCupon as id,o.tituloOferta as titulo, s.nombreSucursal as sucursal, o.precioRegular, o.precioOferta, e.definirEstado as estado, o.descripcion, o.fechaInicio, o.fechaFin, o.fechaLimite  FROM tblCupones o
@@ -97,7 +102,7 @@
                                         echo "</div>";
                                          }
                                         echo "</div>";
-                                }
+                                }}
                                     CloseCon($conn);
                         ?>
                     </div>
@@ -108,7 +113,13 @@
                                 $conn =OpenCon();
                                 //consulta de empresa
                                  $idE=$row->id;
-
+                                 if($count==0)
+                                 {
+                                     ECHO "<h1 class='text-center text-warning'>LA EMPRESA NO DISPONE DE OFERTAS!!</h1>";
+                                 }
+                                 else{
+                                     
+                                $id=$_GET["codigo"];
                                 if($id=$idE){
                                 $idSuc=$rowE->idSucursal;
                                 $sql="SELECT o.idCupon as id,o.tituloOferta as titulo, s.nombreSucursal as sucursal, o.precioRegular, o.precioOferta, e.definirEstado as estado, o.descripcion, o.fechaInicio, o.fechaFin, o.fechaLimite  FROM tblCupones o
@@ -133,6 +144,7 @@
                                 }
                             }
                                 echo "</div>";
+                        }
                                 CloseCon($conn);
                         ?>
                     </div>
@@ -143,7 +155,13 @@
                                 $conn =OpenCon();
                                 //consulta de empresa
                                 // $idE=$row->id;
-
+                                if($count==0)
+                                {
+                                    ECHO "<h1 class='text-center text-warning'>LA EMPRESA NO DISPONE DE OFERTAS!!</h1>";
+                                }
+                                else{
+                                    
+                               $id=$_GET["codigo"];
                                 if($id=$idE){
                                 $idSuc=$rowE->idSucursal;
                                
@@ -169,6 +187,7 @@
                                     }
                                 }
                                     echo "</div>";
+                            }
                                 
                                     CloseCon($conn);
                         ?>
