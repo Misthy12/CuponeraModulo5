@@ -35,14 +35,14 @@
            <div class="card-body">
                 <form action="" method="POST">
                     <label for="nombreRubro">Nombre</label>
-                    <input type="text" name="nombreRubro" id="nombreRubro" class="form-control" value="<?php echo $row->nombreRubro ?>" require/>
+                    <input type="text" name="nombreRubro" id="nombreRubro" class="form-control" value="<?php echo $row->nombreRubro ?>" required/>
                     <br>
 
                     <label for="descripcion">Descripcion</label>
-                    <textarea type="text" name="descripcion" id="descripcion" class="form-control" row="3" require><?php echo $row->descripcion ?></textarea>
+                    <textarea type="text" name="descripcion" id="descripcion" class="form-control" row="3" required><?php echo $row->descripcion ?></textarea>
                     <br>
                     <!-- extraer el id -->
-                    <input type="hidden" name="id" id="id" class="form-control" value="<?php echo $row->idRubro ?>" require/>
+                    <input type="hidden" name="id" id="id" class="form-control" value="<?php echo $row->idRubro ?>" required/>
                     
                     <input type="Submit" value="Guardar" name="submit" class="btn btn-success">
                     <a href="listado_rubros.php" class="btn btn-info">Regresar</a>
