@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-10-2020 a las 05:31:57
+-- Tiempo de generación: 04-10-2020 a las 15:54:52
 -- Versión del servidor: 10.4.13-MariaDB
 -- Versión de PHP: 7.4.7
 
@@ -44,8 +44,7 @@ CREATE TABLE `tblclientes` (
 --
 
 INSERT INTO `tblclientes` (`idCliente`, `nombresCliente`, `apellidosClientes`, `telefono`, `correoCliente`, `direccionCliente`, `dui`, `password`, `estado`) VALUES
-(3, 'Fidel', 'García', '72740495', 'matinezfidel@gmail.com', 'Ruta SAM10N, Caserio Chispa contiguo a Resd. River Side North', '0000000-3', '$2y$10$Pg/hpm6WkoTc8SwYh', 'No Verificado'),
-(6, 'Fidel', 'Martínez', '72740495', 'matinezfidel@gmail.com', 'Riverside Garden, San Miguel, El Salvador', '0000000-3', '$2y$10$gIRMDAPnQP2OBOkqr9n9c.pmJN.AO5NjnIKvTSFJI1elIRFEwbg7y', 'No Verificado');
+(3, 'Fidel', 'García', '72740495', 'matinezfidel@gmail.com', 'Ruta SAM10N, Caserio Chispa contiguo a Resd. River Side North', '0000000-3', '$2y$10$gIRMDAPnQP2OBOkqr9n9c.pmJN.AO5NjnIKvTSFJI1elIRFEwbg7y', 'No Verificado');
 
 -- --------------------------------------------------------
 
@@ -65,11 +64,8 @@ CREATE TABLE `tblcompracupon` (
 --
 
 INSERT INTO `tblcompracupon` (`idCompra`, `idCliente`, `idCupon`, `codigoCompra`) VALUES
-(1, 3, 2, 'EM10CUPO1575'),
-(8, 3, 2, 'EM10CUPO1575'),
-(9, 3, 1, 'EM10CUPO1575'),
-(10, 3, 1, 'EM10CUPO1575'),
-(11, 3, 2, 'EM10CUPO1575');
+(14, 3, 7, 'SUC7-17u4vik'),
+(15, 3, 8, 'SUC8-qh6rguk');
 
 -- --------------------------------------------------------
 
@@ -98,9 +94,8 @@ CREATE TABLE `tblcupones` (
 --
 
 INSERT INTO `tblcupones` (`idCupon`, `tituloOferta`, `IdSucursal`, `precioRegular`, `precioOferta`, `fechaInicio`, `fechaFin`, `fechaLimite`, `cantidad`, `descripcion`, `estado`, `justificacion`, `otros`) VALUES
-(1, 'Camisas - 25', 2, '100.00', '75.00', '2020-09-30', '2020-11-25', '2020-11-30', 10, ' Por la compra de camisas aplica un 25% de Descuento ', 2, NULL, NULL),
-(2, 'Pantalon Tommy', 2, '25.00', '15.00', '2020-09-30', '2020-10-10', '2020-10-11', 2, ' sfgsag ', 2, NULL, NULL),
-(3, 'Gorras', 2, '5.00', '3.50', '2020-10-03', '2020-10-31', '2020-10-29', 5, ' Promocion de gorras', 1, NULL, NULL);
+(7, 'Gorras', 2, '5.00', '2.50', '2020-10-01', '2020-10-14', '2020-10-16', 2, 'Super Promo de Gorras ', 5, NULL, NULL),
+(8, 'Zapatos', 2, '30.00', '25.00', '2020-10-04', '2020-10-12', '2020-10-14', 5, ' Super Promo Zapato ', 6, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -125,9 +120,7 @@ CREATE TABLE `tblempresas` (
 --
 
 INSERT INTO `tblempresas` (`idEmpresa`, `nombreEmpresa`, `codigoEmpresa`, `direccion`, `correo`, `clave`, `telefono`, `idRubro`, `porcentajeComision`) VALUES
-(1, 'Texti Telas', 'ZC2469', 'San Salvador, corredor central', '', '', '6624-8695', 1, '5.00'),
-(2, 'Toyota', 'qjomu1', 'San Miguel', 'toyota.sm@gmail.com', 'Mtuy1Adr7Q ', '2222-2222', 1, '1.00'),
-(3, 'Toyota', 'qras2h', 'San Miguel', 'toyota.sm@gmail.com', 'vYyHV8iAt6 ', '2222-2222', 1, '1.00');
+(1, 'Texti Telas', 'ZC2469', 'San Salvador, corredor central', '', '', '6624-8695', 1, '5.00');
 
 -- --------------------------------------------------------
 
@@ -149,7 +142,9 @@ INSERT INTO `tblestadoscupon` (`idEstadoCupon`, `definirEstado`, `descripcion`) 
 (1, 'Espera Aprobación', 'Oferta en espera de aprobación'),
 (2, 'Aprobada', ''),
 (3, 'Rechazada', 'La oferta fue rechazada, no cumple con los requisitos establecidos, puede modificarla y volver a env'),
-(4, 'Descartada', NULL);
+(4, 'Descartada', NULL),
+(5, 'Vencido', NULL),
+(6, 'Vendido', NULL);
 
 -- --------------------------------------------------------
 
@@ -211,7 +206,7 @@ CREATE TABLE `tblusuarios` (
 --
 
 INSERT INTO `tblusuarios` (`idUsuario`, `nombreUsuario`, `email`, `password`, `estado`) VALUES
-(1, 'Fidel Martinez', 'matinezfidel@gmail.com', '$2y$10$gIRMDAPnQP2OBOkqr9n9c.pmJN.AO5NjnIKvTSFJI1elIRFEwbg7y', '1');
+(1, 'Administrador', 'admin@gmail.com', '$2y$10$gIRMDAPnQP2OBOkqr9n9c.pmJN.AO5NjnIKvTSFJI1elIRFEwbg7y', '1');
 
 --
 -- Índices para tablas volcadas
@@ -280,19 +275,19 @@ ALTER TABLE `tblusuarios`
 -- AUTO_INCREMENT de la tabla `tblclientes`
 --
 ALTER TABLE `tblclientes`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `tblcompracupon`
 --
 ALTER TABLE `tblcompracupon`
-  MODIFY `idCompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idCompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `tblcupones`
 --
 ALTER TABLE `tblcupones`
-  MODIFY `idCupon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idCupon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `tblempresas`
@@ -304,7 +299,7 @@ ALTER TABLE `tblempresas`
 -- AUTO_INCREMENT de la tabla `tblestadoscupon`
 --
 ALTER TABLE `tblestadoscupon`
-  MODIFY `idEstadoCupon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idEstadoCupon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `tblrubros`
@@ -316,13 +311,13 @@ ALTER TABLE `tblrubros`
 -- AUTO_INCREMENT de la tabla `tblsucursales`
 --
 ALTER TABLE `tblsucursales`
-  MODIFY `idSucursal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idSucursal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `tblusuarios`
 --
 ALTER TABLE `tblusuarios`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
