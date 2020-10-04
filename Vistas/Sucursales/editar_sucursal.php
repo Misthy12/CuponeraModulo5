@@ -71,7 +71,7 @@
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <label for="clave">Contraseña</label>
-                            <input type="password" name="clave" id="clave" class="form-control" value=" " required/>
+                            <input type="password" name="clave" id="clave" class="form-control"  required/>
                             <br>
                         </div>
                     </div>
