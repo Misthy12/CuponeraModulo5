@@ -1,4 +1,5 @@
 <?php
+
 function generarCodigoS($longitud) {
     $key = '';
     $pattern = '1234567890abcdefghijklmnopqrstuvwxyz';
