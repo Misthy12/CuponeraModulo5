@@ -2,6 +2,8 @@
     include "../../Share/header.php";
     include "../../Share/conexion.php";
     include '../../Share/funcionesGenerativas.php';
+    require '../../Share/PhpMailer/src/PHPMailer.php';
+    require '../../Share/PhpMailer/src/SMTP.php';
 ?>
 
 <!-- Main content -->
