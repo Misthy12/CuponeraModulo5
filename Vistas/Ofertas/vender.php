@@ -8,7 +8,7 @@
             die("No se pudo conectar a la base de datos :( ");
             header('Location: ./listado_ofertas.php?result=0');
         } 
-        $sql = "UPDATE tblcupones SET estado=5 WHERE idCupon=?";        
+        $sql = "UPDATE tblcupones SET estado=6 WHERE idCupon=?";        
 
         $sth = $conn->prepare($sql);
         $sth->execute(array($_GET['codigo']));
